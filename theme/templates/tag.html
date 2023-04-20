@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}{{ SITENAME }} - Tag {{ tag }}{% endblock %}
+
+{% block head %}
+    {{ super() }}
+
+    <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/tag.css"/>
+{% endblock %}
+
+{% block content %}
+    <div class="tag-title">#{{ tag }}</div>
+    {% for category, _ in categories %}
+        {% if articles|selectattr("category", "equalto", category)|list|length > 0 %}
+            <div class="tag-category">
+            {{ category|capitalize }}:
+            </div>
+            <ul class="tag-articles-list">
+            {% for article in articles %}
+                {% if article.category == category %}
+                <li><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark"
+                    title="Permalink to {{ article.title|striptags }}">{{ article.title }}
+                </a>
+                </li>
+                {% endif %}
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endfor %}
+{% endblock %}

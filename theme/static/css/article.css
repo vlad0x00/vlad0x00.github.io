@@ -1,0 +1,69 @@
+.projects-article-text, .reports-article-text {
+}
+
+.poems-article-text {
+    /* Courier font */
+    font-family: "Courier New", Courier, monospace;
+    display: table;
+    margin: auto;
+    position: relative;
+    left: 1%;
+}
+
+
+[class$="-article-title"] {
+    font-size: 30px;
+    font-weight: bold;
+    display: table;
+    margin: auto;
+    margin-bottom: 2px;
+    position: relative;
+}
+
+.poems-article-tags {
+}
+
+.reports-article-tags, .projects-article-tags {
+    /* Light grey font color */
+    color: #dbdbdb;
+    display: table;
+    margin: auto;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+[class$="-article-tags"] a:link, [class$="-article-tags"] a:visited, [class$="-article-tags"] a:active, [class$="-article-tags"] a:focus, [class$="-article-tags"] a:hover {
+    text-decoration: none;
+    color: #dbdbdb;
+    outline: 0;
+ }
+
+[class$="-article-date"] {
+    font-size: 16px;
+    /* Light grey font color */
+    color: #dbdbdb;
+    display: table;
+    margin: auto;
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.poems-article-body {
+    position: relative;
+    left: 3%;
+}
+
+.projects-article-body, .reports-article-body {
+}
+
+.projects-article-body a:link, .projects-article-body a:visited, .projects-article-body a:active, .projects-article-body a:focus, .projects-article-body a:hover {
+    text-decoration: underline;
+}
+
+.reports-article-body a:link, .reports-article-body a:visited, .reports-article-body a:active, .reports-article-body a:focus, .reports-article-body a:hover {
+    text-decoration: underline;
+}
+
+.citation {
+    font-size: 16px;
+}

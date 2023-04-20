@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}{{ SITENAME }} - Index{% endblock %}
+
+{% block head %}
+    {{ super() }}
+
+    <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/about.css"/>
+{% endblock %}
+
+{% block content %}
+<div class="about-title">About</div>
+<div class="about-body">
+    Hi! I'm Vlad. Currently living in Vancouver, BC, Canada. Professionally I do bioinformatics and software engineering in science and you'll find projects related to that on this website. I also post reports on insights I think might be valuable to others, as well as poems I wrote.
+    <br/>
+    <br/>
+    The background photo is from beautiful Whistler, BC!
+    <br/>
+    <br/>
+    <div class="about">
+    Proxy email: <a href="mailto:hello.j536i@simplelogin.com">hello.j536i@simplelogin.com</a><br/>
+    Twitter: <a target="_blank" href="https://twitter.com/chutzycat">twitter.com/chutzycat</a><br/>
+    GitHub: <a target="_blank" href="https://www.github.com/vlad0x00">github.com/vlad0x00</a><br/>
+    LinkedIn: <a target="_blank" href="https://www.linkedin.com/in/vladimir-nik">linkedin.com/in/vladimir-nik</a><br/>
+    </div>
+</div>
+{% endblock %}

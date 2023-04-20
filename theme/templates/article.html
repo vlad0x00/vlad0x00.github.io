@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}{{ SITENAME }} - {{ article.title }}{% endblock %}
+
+{% block head %}
+    {{ super() }}
+    {% if article.description %}
+    <meta name="description" content="{{ article.description }}" />
+    {% endif %}
+
+    {% for tag in article.tags %}
+    <meta name="tags" content="{{ tag }}" />
+    {% endfor %}
+
+    <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/article.css"/>
+{% endblock %}
+
+{% block content %}
+    <div class="{{ category }}-article-text">
+        <div class="{{ category }}-article-title">{{ article.title }}</div>
+        <div class="{{ category }}-article-tags">
+        {% for tag in article.tags %}
+            <a href="{{ SITEURL }}/{{ tag.url }}">#{{ tag.name }}</a>
+        {% endfor %}
+        </div>
+        <div class="{{ category }}-article-date">
+        {% if category in CATEGORIES_WITH_PUB_DATE and article.date %}
+            Published on {{ article.date|strftime(DEFAULT_DATE_FORMAT) }}
+        {% endif %}
+        {% if article.date and article.moddate %}
+            <br/>
+        {% endif %}
+        {% if category in CATEGORIES_WITH_MOD_DATE and article.moddate %}
+            Last modified on {{ article.moddate|strptime('%Y-%m-%d')|strftime(DEFAULT_DATE_FORMAT) }}
+        {% endif %}
+        </div>
+        <div class="{{ category }}-article-body">
+            {{ article.content }}
+        </div>
+    </div>
+{% endblock %}

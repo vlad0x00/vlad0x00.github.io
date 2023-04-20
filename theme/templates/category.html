@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block title %}{{ SITENAME }} - Posts{% endblock %}
+
+{% block head %}
+    {{ super() }}
+
+    <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/category.css"/>
+{% endblock %}
+
+{% block content %}
+    <div class="{{ category }}-category-title">{{ category|capitalize }}</div>
+    <div class="{{ category }}-category-tags">
+        {% for tag, articles in tags|sort %}
+            <!-- If at least one article is in the category, print the tag -->
+            {% if articles|selectattr("category", "equalto", category)|list|length > 0 %}
+            <a href="{{ SITEURL }}/{{ tag.url }}">#{{ tag.name }}</a>
+            {% endif %}
+        {% endfor %}
+    </div>
+    <!-- Start list -->
+    <ul class="{{ category }}-category-list">
+        {% for article in articles_page.object_list %}
+        <li>
+            <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">
+                {{ article.title }}
+                <!-- Only print summary if category is in CATEGORIES_WITH_SUMMARY set -->
+                {% if category in CATEGORIES_WITH_SUMMARY %}
+                <div class="{{ category }}-category-article-summary">
+                {% if category in CATEGORIES_WITH_PUB_DATE and article.date %}
+                    Published on {{ article.date|strftime(DEFAULT_DATE_FORMAT) }}
+                {% endif %}
+                <br/>
+                {{ article.summary|striptags }}
+                </div>
+                {% endif %}
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+
+    {% if articles_page.has_other_pages() %}
+    <p class="paginator">
+        {% if articles_page.has_previous() %}
+            <a href="{{ SITEURL }}/{{ articles_previous_page.url }}">&laquo;</a>
+        {% endif %}
+        Page {{ articles_page.number }} / {{ articles_paginator.num_pages }}
+        {% if articles_page.has_next() %}
+            <a href="{{ SITEURL }}/{{ articles_next_page.url }}">&raquo;</a>
+        {% endif %}
+    </p>
+    {% endif %}
+
+{% endblock %}
