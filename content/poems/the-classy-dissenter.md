@@ -1,5 +1,5 @@
 Title: The classy dissenter
-Date: 2023-03-01
+Date: 2022-12-31
 
 Of rebel nation far 'way born  
 in eyes of foe as bleeding thorn  
