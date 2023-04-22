@@ -1,0 +1,17 @@
+.about-title {
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.about {
+    display: table;
+    margin: auto;
+    position: relative;
+}
+
+/* Underline links in .about class */
+.about a:link, .about a:visited, .about a:active, .about a:focus, .about a:hover {
+    text-decoration: underline;
+}

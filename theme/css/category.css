@@ -1,0 +1,48 @@
+[class$="-category-title"] {
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 2px;
+}
+
+[class$="-category-tags"] {
+    /* Light grey font color */
+    color: #dbdbdb;
+    display: table;
+    margin: auto;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+[class$="-category-tags"] a:link, [class$="-category-tags"] a:visited, [class$="-category-tags"] a:active, [class$="-category-tags"] a:focus, [class$="-category-tags"] a:hover {
+    text-decoration: none;
+    color: #dbdbdb;
+    outline: 0;
+ }
+
+.poems-category-list {
+    /* Courier font */
+    font-family: "Courier New", Courier, monospace;
+    display: table;
+    margin: auto;
+    position: relative;
+    left: -3%;
+}
+
+.projects-category-list, .reports-category-list {
+    font-size: 22px;
+    display: table;
+    margin: auto;
+    position: relative;
+    left: -3%;
+}
+
+[class$="-category-article-summary"] {
+    font-size: 14px;
+    /* Light grey font color */
+    color: #dbdbdb;
+}
+
+.paginator {
+    text-align: center;
+}
