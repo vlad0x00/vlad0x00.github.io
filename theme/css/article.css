@@ -1,4 +1,4 @@
-.projects-article-text, .reports-article-text {
+[class$="-article-text"] {
     overflow: hidden;
     text-overflow: ellipsis;
     hyphens: auto;
@@ -14,7 +14,6 @@
     left: 1%;
 }
 
-
 [class$="-article-title"] {
     font-size: 30px;
     font-weight: bold;
@@ -22,6 +21,7 @@
     margin: auto;
     margin-bottom: 2px;
     position: relative;
+    text-align: center;
 }
 
 .poems-article-tags {
