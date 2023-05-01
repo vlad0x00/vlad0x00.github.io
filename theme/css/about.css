@@ -5,13 +5,20 @@
     margin-bottom: 30px;
 }
 
-.about {
+.about-body {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    hyphens: auto;
+    word-break: break-word;
+}
+
+.links-section {
     display: table;
     margin: auto;
     position: relative;
 }
 
-/* Underline links in .about class */
-.about a:link, .about a:visited, .about a:active, .about a:focus, .about a:hover {
+/* Underline links in .about-body class */
+.about-body a:link, .about-body a:visited, .about-body a:active, .about-body a:focus, .about-body a:hover {
     text-decoration: underline;
 }
