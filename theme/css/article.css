@@ -1,6 +1,4 @@
 [class$="-article-text"] {
-    overflow: hidden;
-    text-overflow: ellipsis;
     hyphens: auto;
     word-break: break-word;
 }

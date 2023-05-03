@@ -6,8 +6,6 @@
 }
 
 .about-body {
-    overflow: hidden;
-    text-overflow: ellipsis;
     hyphens: auto;
     word-break: break-word;
 }
