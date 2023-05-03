@@ -4,8 +4,8 @@ html {
 }
 
 body {
-    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
-    font-weight: 300;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    /* font size */
     background-image: url("../images/bg.jpg");
     background-size: cover;
     background-repeat: no-repeat;
@@ -50,7 +50,7 @@ hr {
     /* Blur the background of the element */
     backdrop-filter: blur(20px);
     /* Grey background */
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 .main-window {
@@ -62,5 +62,5 @@ hr {
     /* Blur the background of the element */
     backdrop-filter: blur(20px);
     /* Grey background */
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.5);
 }
