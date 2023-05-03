@@ -21,7 +21,7 @@
     <!-- Start list -->
     <ul class="{{ category }}-category-list">
         {% for article in articles_page.object_list %}
-        <li>
+        <li class="{{ category }}-category-list-item">
             <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">
                 {{ article.title }}
                 <!-- Only print summary if category is in CATEGORIES_WITH_SUMMARY set -->

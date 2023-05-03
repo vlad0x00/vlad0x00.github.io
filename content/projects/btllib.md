@@ -8,5 +8,5 @@ Currently, the library is maintained by the awesome [Birol lab](http://www.birol
 <br/>
 <br/>
 <div class="citation">
-Nikolić et al., (2022). btllib: A C++ library with Python interface for efficient genomic sequence processing. Journal of Open Source Software, 7(79), 4720, <a href="https://doi.org/10.21105/joss.04720">https://doi.org/10.21105/joss.04720</a>
+Nikolić et al., (2022). btllib: A C++ library with Python interface for efficient genomic sequence processing. Journal of Open Source Software, 7(79), 4720, <a target="_blank" href="https://doi.org/10.21105/joss.04720">https://doi.org/10.21105/joss.04720</a>
 </div>

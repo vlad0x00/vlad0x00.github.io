@@ -37,6 +37,13 @@
     left: -3%;
 }
 
+.poems-category-list-item {
+}
+
+.projects-category-list-item:not(:last-child), .reports-category-list-item:not(:last-child) {
+    margin-bottom: 15px;
+}
+
 [class$="-category-article-summary"] {
     font-size: 14px;
     /* Light grey font color */
