@@ -20,7 +20,8 @@ TRANSLATION_FEED_ATOM = None
 AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
-STATIC_PATHS = [ 'images' ]
+STATIC_PATHS = [ 'static' ]
+ARTICLE_EXCLUDES = [ 'static' ]
 
 TYPOGRIFY = True
 
