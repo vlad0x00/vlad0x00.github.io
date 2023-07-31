@@ -1,0 +1,32 @@
+input[type="text"], input[type="number"] {
+    appearance: none;
+    margin: 0;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+.time-input-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.25rem;
+}
+
+.time-input {
+    width: 40%;
+}
+
+.time-colon {
+    width: 20%;
+    text-align: center;
+}
+
+input[type="text"].text-center, 
+input[type="number"].text-center {
+    text-align: center;
+}
+
+.input-group-custom {
+    width: 20%;
+}
