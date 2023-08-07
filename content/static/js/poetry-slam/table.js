@@ -4,16 +4,16 @@ let poetCount = 1;
 function getHeaderHTML(judgeCount) {
     return `
     <div class="header">
-        <div class="row text-center border-bottom pb-2 mb-2">
-            <div class="col-2">
+        <div class="d-flex flex-wrap text-center border-bottom pb-2 mb-2">
+            <div class="col-12 col-sm-2">
                 Poet
             </div>
-            <div class="col-6">
+            <div class="col-12 col-sm-6">
                 <div class="row">
                     ${Array.from({ length: judgeCount }, (_, i) => `<div class="col">Judge ${i + 1}</div>`).join('')}
                 </div>
             </div>
-            <div class="col-4">
+            <div class="col-12 col-sm-4">
                 <div class="row">
                     <div class="col">Total</div>
                     <div class="col">Time</div>
@@ -42,10 +42,10 @@ function getTimeHTML() {
 function getRowHTML(judgeCount) {
     return `
     <div class="poet-row">
-        <div class="row text-center border-bottom pb-2 mb-2">
-            <div class="col-2"><input type="text" class="form-control text-center poet-name"></div>
-            <div class="col-6"><div class="row">${getJudgeHTML().repeat(judgeCount)}</div></div>
-            <div class="col-4">
+        <div class="d-flex flex-wrap text-center border-bottom pb-2 mb-2">
+            <div class="col-12 col-sm-2"><input type="text" class="form-control text-center poet-name"></div>
+            <div class="col-12 col-sm-6"><div class="row">${getJudgeHTML().repeat(judgeCount)}</div></div>
+            <div class="col-12 col-sm-4">
                 <div class="row">
                     <div class="col"><input type="text" class="form-control text-center total-score" disabled></div>
                     ${getTimeHTML()}
