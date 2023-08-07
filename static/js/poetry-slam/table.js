@@ -111,7 +111,7 @@ function clearTable() {
 function downloadCSV() {
     let csvContent = 'data:text/csv;charset=utf-8,';
     // Write human readable headers
-    csvContent += 'Max Time,Penalty Step Time,Time Penalty\n';
+    csvContent += 'Max Time,Time Penalty Step,Penalty Per Step\n';
 
     // Write parameter values
     let maxTimeMin = $('#max-time-min').val();
@@ -121,16 +121,16 @@ function downloadCSV() {
         maxTimeSec = '0' + maxTimeSec;
     }
 
-    let penaltyStepTimeMin = $('#penalty-step-time-min').val();
-    let penaltyStepTimeSec = $('#penalty-step-time-sec').val();
+    let timePenaltyStepMin = $('#time-penalty-step-min').val();
+    let timePenaltyStepSec = $('#time-penalty-step-sec').val();
     // Convert seconds to ss format
-    if (penaltyStepTimeSec < 10) {
-        penaltyStepTimeSec = '0' + penaltyStepTimeSec;
+    if (timePenaltyStepSec < 10) {
+        timePenaltyStepSec = '0' + timePenaltyStepSec;
     }
 
-    let timePenalty = $('#time-penalty').val();
+    let penaltyPerStep = $('#penalty-per-step').val();
 
-    csvContent += `${maxTimeMin}:${maxTimeSec},${penaltyStepTimeMin}:${penaltyStepTimeSec},${timePenalty}\n`;
+    csvContent += `${maxTimeMin}:${maxTimeSec},${timePenaltyStepMin}:${timePenaltyStepSec},${penaltyPerStep}\n`;
 
     // Separate parameters from data with a blank line
     csvContent += '\n';
