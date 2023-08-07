@@ -3,21 +3,32 @@ let poetCount = 1;
 
 function getHeaderHTML(judgeCount) {
     return `
-    <div class="row text-center border-bottom pb-2 mb-2">
-        <div class="col-2">
-            Poet
-        </div>
-        <div class="col-6">
-            <div class="row">
-                ${Array.from({ length: judgeCount }, (_, i) => `<div class="col">Judge ${i + 1}</div>`).join('')}
+    <div>
+        <div class="row text-center border-bottom pb-2 mb-2 d-none d-md-flex">
+            <div class="col-2">
+                Poet
+            </div>
+            <div class="col-6">
+                <div class="row">
+                    ${Array.from({ length: judgeCount }, (_, i) => `<div class="col">Judge ${i + 1}</div>`).join('')}
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="row">
+                    <div class="col">Total</div>
+                    <div class="col">Time</div>
+                    <div class="col">Total - Time</div>
+                </div>
             </div>
         </div>
-        <div class="col-4">
-            <div class="row">
-                <div class="col">Total</div>
-                <div class="col">Time</div>
-                <div class="col">Total - Time</div>
-            </div>
+        <div class="row text-center pb-2 mb-2 d-md-none">
+            <div class="col-3">Poet</div>
+            <div class="col-3">Total</div>
+            <div class="col-3">Time</div>
+            <div class="col-3">Total - Time</div>
+        </div>
+        <div class="row text-center border-bottom pb-2 mb-2 d-md-none">
+            ${Array.from({ length: judgeCount }, (_, i) => `<div class="col">Judge ${i + 1}</div>`).join('')}
         </div>
     </div>`;
 }
@@ -28,18 +39,19 @@ function getJudgeHTML() {
 
 function getTimeHTML() {
     return `
-        <div class="col">
-            <div class="time-input-container">
-                <input type="text" class="form-control time-input time-min text-center" onkeypress="return /[0-9]/i.test(event.key)" maxlength="2" inputmode="numeric" placeholder="00">
-                <span class="time-colon">:</span>
-                <input type="text" class="form-control time-input time-sec text-center" onkeypress="return /[0-9]/i.test(event.key)" maxlength="2" inputmode="numeric" placeholder="00">
-            </div>
-        </div>`;
+    <div class="col">
+        <div class="time-input-container">
+            <input type="text" class="form-control time-input time-min text-center" onkeypress="return /[0-9]/i.test(event.key)" maxlength="2" inputmode="numeric" placeholder="00">
+            <span class="time-colon">:</span>
+            <input type="text" class="form-control time-input time-sec text-center" onkeypress="return /[0-9]/i.test(event.key)" maxlength="2" inputmode="numeric" placeholder="00">
+        </div>
+    </div>`;
 }
 
 function getRowHTML(judgeCount) {
     return `
-        <div class="row text-center border-bottom pb-2 mb-2">
+    <div>
+        <div class="row text-center border-bottom pb-2 mb-2 d-none d-md-flex">
             <div class="col-2"><input type="text" class="form-control text-center poet-name"></div>
             <div class="col-6"><div class="row">${getJudgeHTML().repeat(judgeCount)}</div></div>
             <div class="col-4">
@@ -49,7 +61,17 @@ function getRowHTML(judgeCount) {
                     <div class="col"><input type="text" class="form-control text-center total-time-score" disabled></div>
                 </div>
             </div>
-        </div>`;
+        </div>
+        <div class="row text-center pb-2 mb-2 d-md-none">
+            <div class="col-3"><input type="text" class="form-control text-center poet-name"></div>
+            <div class="col-3"><input type="text" class="form-control text-center total-score" disabled></div>
+            <div class="col-3">${getTimeHTML()}</div>
+            <div class="col-3"><input type="text" class="form-control text-center total-time-score" disabled></div>
+        </div>
+        <div class="row text-center border-bottom pb-2 mb-2 d-md-none">
+            ${getJudgeHTML().repeat(judgeCount)}
+        </div>
+    </div>`;
 }
 
 function renderTable() {
