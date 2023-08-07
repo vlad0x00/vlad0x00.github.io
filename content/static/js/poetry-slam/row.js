@@ -61,7 +61,7 @@ function updateRow(row) {
 }
 
 function updateAllRows() {
-    $('#slam-table-rows .row.text-center').each(function() {
+    $('#slam-table-rows .poet-row').each(function() {
         updateRow($(this));
     });
 }
@@ -88,7 +88,7 @@ function getRowData(row) {
 
 function getAllRowsData() {
     var data = [];
-    $('#slam-table-rows .row.text-center').each(function() {
+    $('#slam-table-rows .poet-row').each(function() {
         data.push(getRowData($(this)));
     });
     return data;

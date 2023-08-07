@@ -3,8 +3,8 @@ let poetCount = 1;
 
 function getHeaderHTML(judgeCount) {
     return `
-    <div>
-        <div class="row text-center border-bottom pb-2 mb-2 d-none d-md-flex">
+    <div class="header">
+        <div class="row text-center border-bottom pb-2 mb-2">
             <div class="col-2">
                 Poet
             </div>
@@ -20,15 +20,6 @@ function getHeaderHTML(judgeCount) {
                     <div class="col">Total - Time</div>
                 </div>
             </div>
-        </div>
-        <div class="row text-center pb-2 mb-2 d-md-none">
-            <div class="col-3">Poet</div>
-            <div class="col-3">Total</div>
-            <div class="col-3">Time</div>
-            <div class="col-3">Total - Time</div>
-        </div>
-        <div class="row text-center border-bottom pb-2 mb-2 d-md-none">
-            ${Array.from({ length: judgeCount }, (_, i) => `<div class="col">Judge ${i + 1}</div>`).join('')}
         </div>
     </div>`;
 }
@@ -50,8 +41,8 @@ function getTimeHTML() {
 
 function getRowHTML(judgeCount) {
     return `
-    <div>
-        <div class="row text-center border-bottom pb-2 mb-2 d-none d-md-flex">
+    <div class="poet-row">
+        <div class="row text-center border-bottom pb-2 mb-2">
             <div class="col-2"><input type="text" class="form-control text-center poet-name"></div>
             <div class="col-6"><div class="row">${getJudgeHTML().repeat(judgeCount)}</div></div>
             <div class="col-4">
@@ -61,15 +52,6 @@ function getRowHTML(judgeCount) {
                     <div class="col"><input type="text" class="form-control text-center total-time-score" disabled></div>
                 </div>
             </div>
-        </div>
-        <div class="row text-center pb-2 mb-2 d-md-none">
-            <div class="col-3"><input type="text" class="form-control text-center poet-name"></div>
-            <div class="col-3"><input type="text" class="form-control text-center total-score" disabled></div>
-            <div class="col-3">${getTimeHTML()}</div>
-            <div class="col-3"><input type="text" class="form-control text-center total-time-score" disabled></div>
-        </div>
-        <div class="row text-center border-bottom pb-2 mb-2 d-md-none">
-            ${getJudgeHTML().repeat(judgeCount)}
         </div>
     </div>`;
 }
