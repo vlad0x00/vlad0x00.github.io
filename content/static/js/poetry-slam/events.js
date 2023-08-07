@@ -39,5 +39,5 @@ $(document).ready(function() {
 
     $(document).on('change input', '.judge-input, .time-min, .time-sec', handleRowInputEvent);
 
-    $(document).on('change input', '#max-time-min, #max-time-sec, #penalty-step-time-min, #penalty-step-time-sec, #time-penalty', handleParametersChanged);
+    $(document).on('change input', '#max-time-min, #max-time-sec, #time-penalty-step-min, #time-penalty-step-sec, #penalty-per-step, handleParametersChanged');
 });

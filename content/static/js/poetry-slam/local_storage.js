@@ -1,9 +1,9 @@
 const parameterElements = [
     '#max-time-min',
     '#max-time-sec',
-    '#penalty-step-time-min',
-    '#penalty-step-time-sec',
-    '#time-penalty'
+    '#time-penalty-step-min',
+    '#time-penalty-step-sec',
+    '#penalty-per-step'
 ];
 
 function saveRowValues() {

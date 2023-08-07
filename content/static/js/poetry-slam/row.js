@@ -27,21 +27,21 @@ function updateRowTotalMinusTime(row) {
 
     var maxTimeMin = parseInt($('#max-time-min').val());
     var maxTimeSec = parseInt($('#max-time-sec').val());
-    var penaltyStepTimeMin = parseInt($('#penalty-step-time-min').val());
-    var penaltyStepTimeSec = parseInt($('#penalty-step-time-sec').val());
-    var timePenalty = parseFloat($('#time-penalty').val());
+    var timePenaltyStepMin = parseInt($('#time-penalty-step-min').val());
+    var timePenaltyStepSec = parseInt($('#time-penalty-step-sec').val());
+    var penaltyPerStep = parseFloat($('#penalty-per-step').val());
 
     // Parse the "Time" input for this row
     var timeMin = parseInt(row.find('.time-min').val());
     var timeSec = parseInt(row.find('.time-sec').val());
 
     // Check that all values are valid numbers before performing calculation
-    if (!isNaN(maxTimeMin) && !isNaN(maxTimeSec) && !isNaN(penaltyStepTimeMin) && !isNaN(penaltyStepTimeSec) && !isNaN(timePenalty) && !isNaN(timeMin) && !isNaN(timeSec) && !isNaN(total)) {
+    if (!isNaN(maxTimeMin) && !isNaN(maxTimeSec) && !isNaN(timePenaltyStepMin) && !isNaN(timePenaltyStepSec) && !isNaN(penaltyPerStep) && !isNaN(timeMin) && !isNaN(timeSec) && !isNaN(total)) {
         var maxTime = maxTimeMin * 60 + maxTimeSec;
-        var penaltyStepTime = penaltyStepTimeMin * 60 + penaltyStepTimeSec;
+        var timePenaltyStep = timePenaltyStepMin * 60 + timePenaltyStepSec;
         var time = timeMin * 60 + timeSec;
 
-        var penalty = Math.ceil((time - maxTime) / penaltyStepTime) * timePenalty;
+        var penalty = Math.ceil((time - maxTime) / timePenaltyStep) * penaltyPerStep;
         if (penalty < 0) {
             penalty = 0;
         }
