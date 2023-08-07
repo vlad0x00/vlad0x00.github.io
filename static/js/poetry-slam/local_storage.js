@@ -8,7 +8,7 @@ const parameterElements = [
 
 function saveRowValues() {
     const poets = [];
-    $('#slam-table-rows .row.text-center').each(function() {
+    $('#slam-table-rows .poet-row').each(function() {
         const poetName = $(this).find('.poet-name').val();
         const judgeInputs = $(this).find('.judge-input');
         const scores = judgeInputs.map(function() {
@@ -29,7 +29,7 @@ function saveRowValues() {
 function loadRowValues() {
     const poetsData = JSON.parse(localStorage.getItem('rowValues')) || [];
 
-    $('#slam-table-rows .row.text-center').each(function(index) {
+    $('#slam-table-rows .poet-row').each(function(index) {
         const poetData = poetsData[index];
         if (poetData) {
             $(this).find('.poet-name').val(poetData.poetName);

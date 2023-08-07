@@ -6,7 +6,7 @@ function handleTimeMinInput(event) {
 }
 
 function handleRowInputEvent(event) {
-    var row = $(event.target).closest('.row.text-center'); 
+    var row = $(event.target).closest('.poet-row'); 
     updateRow(row);
     saveRowValues();
 }
@@ -21,6 +21,7 @@ $(document).ready(function() {
     loadParameterValues();
     renderTable();
     loadRowValues();
+    updateAllRows();
 
     $('#add-poet').click(addPoet);
     $('#add-judge').click(addJudge);
