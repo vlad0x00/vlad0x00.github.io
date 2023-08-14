@@ -20,8 +20,8 @@ TRANSLATION_FEED_ATOM = None
 AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
-STATIC_PATHS = [ 'static' ]
-ARTICLE_EXCLUDES = [ 'static' ]
+STATIC_PATHS = [ 'static', 'poetry-slam' ]
+ARTICLE_EXCLUDES = [ 'static', 'poetry-slam' ]
 
 TYPOGRIFY = True
 
