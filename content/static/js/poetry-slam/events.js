@@ -1,27 +1,34 @@
-function handleTimeMinInput(event) {
+function handleTimeMinChange(event) {
     var inputVal = $(event.target).val();
     if (inputVal.length === 2) {
         $(event.target).nextAll('.time-sec').first().focus();
     }
 }
 
-function handleRowInputEvent(event) {
+function handleRowInputChange(event) {
+    console.log("okay?");
+    updateHistory();
     var row = $(event.target).closest('.poet-row'); 
     updateRow(row);
     saveRowValues();
 }
 
-function handleParametersChanged() {
+function handleParametersChange() {
+    updateHistory();
     updateAllRows();
     saveParameterValues();
 }
 
 $(document).ready(function() {
-    loadCounts();
-    loadParameterValues();
-    renderTable();
-    loadRowValues();
-    updateAllRows();
+    loadAll();
+
+    // If the undo stack is empty, add the current state
+    if (undoStack.length === 0) {
+        saveAll();
+        updateHistory();
+    } else {
+        loadHistory();
+    }
 
     $('#add-poet').click(addPoet);
     $('#add-judge').click(addJudge);
@@ -33,11 +40,13 @@ $(document).ready(function() {
             clearTable();
         }
     });
+    $('#undo').click(undo);
+    $('#redo').click(redo);
     $('#download-csv').click(downloadCSV);
 
-    $(document).on('change', '.time-min', handleTimeMinInput);
+    $(document).on('change', '.time-min', handleTimeMinChange);
 
-    $(document).on('change input', '.judge-input, .time-min, .time-sec', handleRowInputEvent);
+    $(document).on('change', '.poet-name, .judge-input, .time-min, .time-sec', handleRowInputChange);
 
-    $(document).on('change input', '#max-time-min, #max-time-sec, #time-penalty-step-min, #time-penalty-step-sec, #penalty-per-step, handleParametersChanged');
+    $(document).on('change', '#max-time-min, #max-time-sec, #time-penalty-step-min, #time-penalty-step-sec, #penalty-per-step', handleParametersChange);
 });
