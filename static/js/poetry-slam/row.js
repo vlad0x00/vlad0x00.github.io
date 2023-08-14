@@ -79,9 +79,9 @@ function getRowData(row) {
     return {
         poetName: poetName,
         scores: scores,
+        totalScore: totalScore,
         timeMin: timeMin,
         timeSec: timeSec,
-        totalScore: totalScore,
         totalMinusTimeScore: totalMinusTimeScore
     };
 }

@@ -65,6 +65,7 @@ function renderTable() {
 }
 
 function addPoet() {
+    updateHistory();
     poetCount++;
     saveRowValues();
     renderTable();
@@ -73,6 +74,7 @@ function addPoet() {
 }
 
 function addJudge() {
+    updateHistory();
     judgeCount++;
     saveRowValues();
     renderTable();
@@ -82,6 +84,7 @@ function addJudge() {
 
 function removePoet() {
     if (poetCount > 1) {
+        updateHistory();
         poetCount--;
         saveRowValues();
         renderTable();
@@ -92,6 +95,7 @@ function removePoet() {
 
 function removeJudge() {
     if (judgeCount > 1) {
+        updateHistory();
         judgeCount--;
         saveRowValues();
         renderTable();
@@ -101,9 +105,10 @@ function removeJudge() {
 }
 
 function clearTable() {
+    updateHistory();
     judgeCount = 3;
     poetCount = 1;
-    clearRowValues();
+    storageClearRowValues();
     saveCounts();
     renderTable();
 }

@@ -47,14 +47,17 @@ function loadRowValues() {
 }
 
 function saveParameterValues() {
+    parameterValues = {};
     for (const element of parameterElements) {
-        localStorage.setItem(element, $(element).val());
+        parameterValues[element] = $(element).val();
     }
+    localStorage.setItem('parameterValues', JSON.stringify(parameterValues));
 }
 
 function loadParameterValues() {
+    const parameterValues = JSON.parse(localStorage.getItem('parameterValues')) || {};
     for (const element of parameterElements) {
-        val = localStorage.getItem(element);
+        const val = parameterValues[element];
         if (val) {
             $(element).val(val);
         }
@@ -62,34 +65,70 @@ function loadParameterValues() {
 }
 
 function saveCounts() {
-    localStorage.setItem('poetCount', poetCount);
-    localStorage.setItem('judgeCount', judgeCount);
+    localStorage.setItem('counts', JSON.stringify({
+        poetCount: poetCount,
+        judgeCount: judgeCount
+    }));
 }
 
 function loadCounts() {
-    val = localStorage.getItem('poetCount');
-    if (val) {
-        poetCount = val;
+    counts = JSON.parse(localStorage.getItem('counts')) || {};
+    if (counts.poetCount) {
+        poetCount = counts.poetCount;
     }
+    if (counts.judgeCount) {
+        judgeCount = counts.judgeCount;
+    }
+}
 
-    val = localStorage.getItem('judgeCount');
-    if (val) {
-        judgeCount = val;
+function saveHistory() {
+    history = {
+        undoStack: undoStack,
+        redoStack: redoStack
+    };
+    localStorage.setItem('history', JSON.stringify(history));
+}
+
+function loadHistory() {
+    history = JSON.parse(localStorage.getItem('history')) || {};
+    if (history.undoStack) {
+        undoStack = history.undoStack;
     }
+    if (history.redoStack) {
+        redoStack = history.redoStack;
+    }
+}
+
+function storageClearParameterValues() {
+    localStorage.removeItem('parameterValues');
+}
+
+function storageClearRowValues() {
+    localStorage.removeItem('rowValues');
+}
+
+function storageClearCounts() {
+    localStorage.removeItem('counts');
+}
+
+function storageClear() {
+    storageClearParameterValues();
+    storageClearRowValues();
+    storageClearCounts();
 }
 
 function loadAll() {
     loadCounts();
     loadParameterValues();
+    renderTable();
     loadRowValues();
+    updateAllRows();
+    loadHistory();
 }
 
 function saveAll() {
     saveCounts();
     saveParameterValues();
     saveRowValues();
-}
-
-function clearRowValues() {
-    localStorage.removeItem('rowValues');
+    saveHistory();
 }
