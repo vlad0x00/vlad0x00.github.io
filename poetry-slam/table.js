@@ -25,7 +25,7 @@ function getHeaderHTML(judgeCount) {
 }
 
 function getJudgeHTML() {
-    return `<div class="col"><input type="text" class="form-control judge-input text-center" onkeypress="return /[0-9.]*/i.test(event.key)" inputmode="numeric" maxlength="3" placeholder="0.0"></div>`;
+    return `<div class="col"><input type="text" class="form-control judge-input text-center" onkeypress="return /[0-9.]*/i.test(event.key)" inputmode="decimal" maxlength="3" placeholder="0.0"></div>`;
 }
 
 function getTimeHTML() {
