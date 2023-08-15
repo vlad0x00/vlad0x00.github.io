@@ -111,6 +111,7 @@ function clearTable() {
     storageClearRowValues();
     saveCounts();
     renderTable();
+    updateAllRows();
 }
 
 function downloadCSV() {
