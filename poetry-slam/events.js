@@ -30,6 +30,8 @@ $(document).ready(function() {
         loadHistory();
     }
 
+    updateAllRows();
+
     $('#add-poet').click(addPoet);
     $('#add-judge').click(addJudge);
     $('#remove-poet').click(removePoet);
