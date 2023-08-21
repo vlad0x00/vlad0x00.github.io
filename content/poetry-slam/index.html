@@ -34,27 +34,49 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-3 input-group input-group-custom mt-3">
-                        <span class="input-group-text">Max time (mm:ss)</span>
-                        <div class="time-input-container">
-                            <input type="text" class="form-control time-input time-min text-center" onkeypress="return /[0-9]/i.test(event.key)" maxlength="2" inputmode="numeric" value="3" placeholder="00" id="max-time-min">
-                            <span class="time-colon">:</span>
-                            <input type="text" class="form-control time-input time-sec text-center" onkeypress="return /[0-9]/i.test(event.key)" maxlength="2" inputmode="numeric" value="10" placeholder="00" id="max-time-sec">
+                    <div class="col-lg-4 col-md-6 col-sm-12 mt-3">
+                        <label for="max-time-min" class="form-label">Max time (mm:ss)</label>
+                        <div class="input-group">
+                            <div class="row">
+                                <div class="col-3">
+                                    <input type="text" class="form-control time-input time-min text-center" onkeypress="return /[0-9]/i.test(event.key)" maxlength="2" inputmode="numeric" value="3" placeholder="00" id="max-time-min">
+                                </div>
+                                <div class="col-auto">
+                                    <span class="time-colon">:</span>
+                                </div>
+                                <div class="col-3">
+                                    <input type="text" class="form-control time-input time-sec text-center" onkeypress="return /[0-9]/i.test(event.key)" maxlength="2" inputmode="numeric" value="10" placeholder="00" id="max-time-sec">
+                                </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-3 input-group input-group-custom mt-3">
-                        <span class="input-group-text">Time penalty step (mm:ss)</span>
-                        <div class="time-input-container">
-                            <input type="text" class="form-control time-input time-min text-center" onkeypress="return /[0-9]/i.test(event.key)" maxlength="2" inputmode="numeric" value="0" placeholder="00" id="time-penalty-step-min">
-                            <span class="time-colon">:</span>
-                            <input type="text" class="form-control time-input time-sec text-center" onkeypress="return /[0-9]/i.test(event.key)" maxlength="2" inputmode="numeric" value="10" placeholder="00" id="time-penalty-step-sec">
+                    <div class="col-lg-4 col-md-6 col-sm-12 mt-3">
+                        <label for="time-penalty-step-min" class="form-label">Time penalty step (mm:ss)</label>
+                        <div class="input-group">
+                            <div class="row">
+                                <div class="col-3">
+                                    <input type="text" class="form-control time-input time-min text-center" onkeypress="return /[0-9]/i.test(event.key)" maxlength="2" inputmode="numeric" value="0" placeholder="00" id="time-penalty-step-min">
+                                </div>
+                                <div class="col-auto">
+                                    <span class="time-colon">:</span>
+                                </div>
+                                <div class="col-3">
+                                    <input type="text" class="form-control time-input time-sec text-center" onkeypress="return /[0-9]/i.test(event.key)" maxlength="2" inputmode="numeric" value="10" placeholder="00" id="time-penalty-step-sec">
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-3 input-group input-group-custom mt-3">
-                        <span class="input-group-text">Penalty per step</span>
-                        <input type="text" class="form-control text-center" onkeypress="return /[0-9.]*/i.test(event.key)" inputmode="decimal" maxlength="5" value="0.5" placeholder="0.0" id="penalty-per-step">
+                    <div class="col-lg-4 col-md-6 col-sm-12 mt-3">
+                        <label for="penalty-per-step" class="form-label">Penalty per step</label>
+                        <div class="row">
+                            <div class="col-3">
+                                <input type="text" class="form-control text-center" onkeypress="return /[0-9.]*/i.test(event.key)" inputmode="decimal" maxlength="5" value="0.5" placeholder="0.0" id="penalty-per-step">  
+                            </div>
+                        </div>
                     </div>
-                </div>
+                </div>             
+                
             </div>
         </div>
     </div>
