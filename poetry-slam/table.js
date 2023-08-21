@@ -1,5 +1,9 @@
-let judgeCount = 3;
-let poetCount = 1;
+const INITIAL_JUDGE_COUNT = 3;
+const INITIAL_POET_COUNT = 2;
+const SACRIFICIAL_POET_COUNT = 1;
+
+let judgeCount = INITIAL_JUDGE_COUNT;
+let poetCount = INITIAL_POET_COUNT;
 
 function getHeaderHTML(judgeCount) {
     return `
@@ -24,11 +28,11 @@ function getHeaderHTML(judgeCount) {
     </div>`;
 }
 
-function getJudgeHTML() {
+function getJudgeInputHTML() {
     return `<div class="col"><input type="text" class="form-control judge-input text-center" onkeypress="return /[0-9.]*/i.test(event.key)" inputmode="decimal" maxlength="3" placeholder="0.0"></div>`;
 }
 
-function getTimeHTML() {
+function getTimeInputHTML() {
     return `
     <div class="col">
         <div class="time-input-container">
@@ -39,16 +43,16 @@ function getTimeHTML() {
     </div>`;
 }
 
-function getRowHTML(judgeCount) {
+function getRowHTML(judgeCount, bgColor = "transparent") {
     return `
-    <div class="poet-row">
-        <div class="d-flex flex-wrap text-center border-bottom pb-2 mb-2">
-            <div class="col-12 col-sm-2"><input type="text" class="form-control text-center poet-name"></div>
-            <div class="col-12 col-sm-6"><div class="row">${getJudgeHTML().repeat(judgeCount)}</div></div>
-            <div class="col-12 col-sm-4">
+    <div class="poet-row" style="background-color: ${bgColor}">
+        <div class="d-flex flex-wrap text-center border-bottom pb-1 pt-1 mb-1 mt-1">
+            <div class="col-12 col-sm-2 ps-1 pe-1"><input type="text" class="form-control text-center poet-name"></div>
+            <div class="col-12 col-sm-6 ps-1 pe-1"><div class="row">${getJudgeInputHTML().repeat(judgeCount)}</div></div>
+            <div class="col-12 col-sm-4 ps-1 pe-1">
                 <div class="row">
                     <div class="col"><input type="text" class="form-control text-center total-score" disabled></div>
-                    ${getTimeHTML()}
+                    ${getTimeInputHTML()}
                     <div class="col"><input type="text" class="form-control text-center total-time-score" disabled></div>
                 </div>
             </div>
@@ -60,7 +64,18 @@ function renderTable() {
     const header = getHeaderHTML(judgeCount);
     $('#slam-table-header').html(header);
 
-    const rows = Array.from({ length: poetCount }, () => getRowHTML(judgeCount)).join('');
+    const rows = Array.from({ length: poetCount }, (_, i) => {
+        let color;
+        if (i < SACRIFICIAL_POET_COUNT) {
+          color = '#FF7979';
+        } else if (i % 2 === 0) {
+          color = 'white';
+        } else {
+          color = '#E8E8E8';
+        }
+        return getRowHTML(judgeCount, color);
+    }).join('');
+
     $('#slam-table-rows').html(rows);
 }
 
@@ -106,71 +121,10 @@ function removeJudge() {
 
 function clearTable() {
     updateHistory();
-    judgeCount = 3;
-    poetCount = 1;
+    judgeCount = INITIAL_JUDGE_COUNT;
+    poetCount = INITIAL_POET_COUNT;
     storageClearRowValues();
     saveCounts();
     renderTable();
     updateAllRows();
-}
-
-function downloadCSV() {
-    let csvContent = 'data:text/csv;charset=utf-8,';
-    // Write human readable headers
-    csvContent += 'Max Time,Time Penalty Step,Penalty Per Step\n';
-
-    // Write parameter values
-    let maxTimeMin = $('#max-time-min').val();
-    let maxTimeSec = $('#max-time-sec').val();
-    // Convert seconds to ss format
-    if (maxTimeSec < 10) {
-        maxTimeSec = '0' + maxTimeSec;
-    }
-
-    let timePenaltyStepMin = $('#time-penalty-step-min').val();
-    let timePenaltyStepSec = $('#time-penalty-step-sec').val();
-    // Convert seconds to ss format
-    if (timePenaltyStepSec < 10) {
-        timePenaltyStepSec = '0' + timePenaltyStepSec;
-    }
-
-    let penaltyPerStep = $('#penalty-per-step').val();
-
-    csvContent += `${maxTimeMin}:${maxTimeSec},${timePenaltyStepMin}:${timePenaltyStepSec},${penaltyPerStep}\n`;
-
-    // Separate parameters from data with a blank line
-    csvContent += '\n';
-
-    csvContent += 'Poet';
-    for (let i = 1; i <= judgeCount; i++) {
-        csvContent += `,Judge ${i}`;
-    }
-    csvContent += ',Total,Time,Total - Time\n';
-    rowsData = getAllRowsData();
-
-    for (let i = 0; i < poetCount; i++) {
-        const poetData = rowsData[i];
-        csvContent += poetData.poetName;
-        for (const score of poetData.scores) {
-            csvContent += `,${score}`;
-        }
-        csvContent += `,${poetData.totalScore}`;
-
-        // If poetData.timeSec is not empty, prepend a 0 if it's less than 10
-        const timeSec = poetData.timeSec ? (poetData.timeSec < 10 ? '0' + poetData.timeSec : poetData.timeSec) : '';
-        // If both timeSec and timeMin are not empty, insert a colon between them, otherwise write a question mark
-        const time = poetData.timeMin && timeSec ? `${poetData.timeMin}:${timeSec}` : '?';
-
-        csvContent += `,${time}`;
-
-        csvContent += `,${poetData.totalMinusTimeScore}\n`;
-    }
-
-    const encodedUri = encodeURI(csvContent);
-    const link = document.createElement("a");
-    link.setAttribute("href", encodedUri);
-    link.setAttribute("download", "poetry_slam.csv");
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
 }
