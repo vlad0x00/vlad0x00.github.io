@@ -8,6 +8,9 @@ function focusChangeOnInput(event) {
         var currentIndex = allInputs.index(event.target);
         if (currentIndex < allInputs.length - 1) {
             allInputs.eq(currentIndex + 1).focus();
+        } else {
+            // Unfocus the current element if there's no next element
+            $(event.target).blur();
         }
     }
 }
@@ -50,7 +53,7 @@ $(document).ready(function() {
     $('#redo').click(redo);
     $('#download-csv').click(downloadCSV);
 
-    $(document).on('input', '.judge-input, .time-min', focusChangeOnInput);
+    $(document).on('input', '.judge-input, .time-min, .time-sec', focusChangeOnInput);
 
     $(document).on('change', '.poet-name, .judge-input, .time-min, .time-sec', handleRowInputChange);
 
