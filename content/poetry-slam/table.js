@@ -1,5 +1,9 @@
-let judgeCount = 3;
-let poetCount = 1;
+const INITIAL_JUDGE_COUNT = 3;
+const INITIAL_POET_COUNT = 2;
+const SACRIFICIAL_POET_COUNT = 1;
+
+let judgeCount = INITIAL_JUDGE_COUNT;
+let poetCount = INITIAL_POET_COUNT;
 
 function getHeaderHTML(judgeCount) {
     return `
@@ -24,11 +28,11 @@ function getHeaderHTML(judgeCount) {
     </div>`;
 }
 
-function getJudgeHTML() {
+function getJudgeInputHTML() {
     return `<div class="col"><input type="text" class="form-control judge-input text-center" onkeypress="return /[0-9.]*/i.test(event.key)" inputmode="decimal" maxlength="3" placeholder="0.0"></div>`;
 }
 
-function getTimeHTML() {
+function getTimeInputHTML() {
     return `
     <div class="col">
         <div class="time-input-container">
@@ -39,16 +43,16 @@ function getTimeHTML() {
     </div>`;
 }
 
-function getRowHTML(judgeCount) {
+function getRowHTML(judgeCount, sacrificialPoet = false) {
     return `
-    <div class="poet-row">
+    <div class="poet-row ${sacrificialPoet ? 'sacrificial-poet' : ''}">
         <div class="d-flex flex-wrap text-center border-bottom pb-2 mb-2">
             <div class="col-12 col-sm-2"><input type="text" class="form-control text-center poet-name"></div>
-            <div class="col-12 col-sm-6"><div class="row">${getJudgeHTML().repeat(judgeCount)}</div></div>
+            <div class="col-12 col-sm-6"><div class="row">${getJudgeInputHTML().repeat(judgeCount)}</div></div>
             <div class="col-12 col-sm-4">
                 <div class="row">
                     <div class="col"><input type="text" class="form-control text-center total-score" disabled></div>
-                    ${getTimeHTML()}
+                    ${getTimeInputHTML()}
                     <div class="col"><input type="text" class="form-control text-center total-time-score" disabled></div>
                 </div>
             </div>
@@ -60,7 +64,9 @@ function renderTable() {
     const header = getHeaderHTML(judgeCount);
     $('#slam-table-header').html(header);
 
-    const rows = Array.from({ length: poetCount }, () => getRowHTML(judgeCount)).join('');
+    const sacPoetRow = getRowHTML(judgeCount, true);
+    const rows = sacPoetRow + Array.from({ length: poetCount - 1 }, () => getRowHTML(judgeCount)).join('');
+
     $('#slam-table-rows').html(rows);
 }
 
@@ -106,8 +112,8 @@ function removeJudge() {
 
 function clearTable() {
     updateHistory();
-    judgeCount = 3;
-    poetCount = 1;
+    judgeCount = INITIAL_JUDGE_COUNT;
+    poetCount = INITIAL_POET_COUNT;
     storageClearRowValues();
     saveCounts();
     renderTable();
@@ -166,10 +172,17 @@ function downloadCSV() {
         csvContent += `,${poetData.totalMinusTimeScore}\n`;
     }
 
+    const date = new Date();
+    const yyyy = date.getFullYear();
+    const mm = String(date.getMonth() + 1).padStart(2, '0');
+    const dd = String(date.getDate()).padStart(2, '0');
+    
+    const formattedDate = `${yyyy}-${mm}-${dd}`;
+
     const encodedUri = encodeURI(csvContent);
     const link = document.createElement("a");
     link.setAttribute("href", encodedUri);
-    link.setAttribute("download", "poetry_slam.csv");
+    link.setAttribute("download", "poetry-slam-" + formattedDate + ".csv");
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
