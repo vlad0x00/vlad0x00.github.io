@@ -67,7 +67,7 @@ function renderTable() {
     const rows = Array.from({ length: poetCount }, (_, i) => {
         let color;
         if (i < SACRIFICIAL_POET_COUNT) {
-          color = 'red';
+          color = '#FF7979';
         } else if (i % 2 === 0) {
           color = 'white';
         } else {

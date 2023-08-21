@@ -1,12 +1,18 @@
-function handleTimeMinChange(event) {
+function focusChangeOnInput(event) {
     var inputVal = $(event.target).val();
-    if (inputVal.length === 2) {
-        $(event.target).nextAll('.time-sec').first().focus();
+    var maxLength = $(event.target).attr('maxlength');
+    if (inputVal.length === parseInt(maxLength, 10)) {
+        var allInputs = $(event.target).closest('.poet-row').find(':input').filter(function() {
+            return !$(this).prop('disabled') && $(this).is(':visible') && $(this).attr('type') !== 'hidden';
+        });
+        var currentIndex = allInputs.index(event.target);
+        if (currentIndex < allInputs.length - 1) {
+            allInputs.eq(currentIndex + 1).focus();
+        }
     }
 }
 
 function handleRowInputChange(event) {
-    console.log("okay?");
     updateHistory();
     var row = $(event.target).closest('.poet-row'); 
     updateRow(row);
@@ -44,7 +50,7 @@ $(document).ready(function() {
     $('#redo').click(redo);
     $('#download-csv').click(downloadCSV);
 
-    $(document).on('change', '.time-min', handleTimeMinChange);
+    $(document).on('input', '.judge-input, .time-min', focusChangeOnInput);
 
     $(document).on('change', '.poet-name, .judge-input, .time-min, .time-sec', handleRowInputChange);
 
