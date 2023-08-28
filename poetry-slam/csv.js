@@ -1,7 +1,6 @@
 function downloadCSV() {
-    let csvContent = 'data:text/csv;charset=utf-8,';
     // Write human readable headers
-    csvContent += 'Max Time,Time Penalty Step,Penalty Per Step\n';
+    csvContent = 'Max Time,Time Penalty Step,Penalty Per Step\n';
 
     // Write parameter values
     let maxTimeMin = $('#max-time-min').val();
@@ -25,7 +24,7 @@ function downloadCSV() {
     // Separate parameters from data with a blank line
     csvContent += '\n';
 
-    csvContent += 'Poet';
+    csvContent += 'Place,Poet';
     for (let i = 1; i <= judgeCount; i++) {
         csvContent += `,Judge ${i}`;
     }
@@ -34,7 +33,7 @@ function downloadCSV() {
 
     for (let i = 0; i < poetCount; i++) {
         const poetData = rowsData[i];
-        csvContent += poetData.poetName;
+        csvContent += `${poetData.place},${poetData.poetName}`;
         for (const score of poetData.scores) {
             csvContent += `,${score}`;
         }
@@ -57,11 +56,13 @@ function downloadCSV() {
     
     const formattedDate = `${yyyy}-${mm}-${dd}`;
 
-    const encodedUri = encodeURI(csvContent);
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
-    link.setAttribute("href", encodedUri);
+    link.setAttribute("href", url);
     link.setAttribute("download", "poetry-slam-" + formattedDate + ".csv");
     document.body.appendChild(link);
     link.click();
+    URL.revokeObjectURL(url);
     document.body.removeChild(link);
 }

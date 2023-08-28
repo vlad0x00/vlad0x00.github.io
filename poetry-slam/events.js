@@ -17,8 +17,7 @@ function focusChangeOnInput(event) {
 
 function handleRowInputChange(event) {
     updateHistory();
-    var row = $(event.target).closest('.poet-row'); 
-    updateRow(row);
+    updateAllRows();
     saveRowValues();
 }
 

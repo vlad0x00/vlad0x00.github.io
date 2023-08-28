@@ -1,3 +1,23 @@
+function updateRowPlace(row, place) {
+    // If place is 0, do nothing (for sacrificial poets)
+    if (place === 0) {
+        return;
+    }
+
+    row.find('.place').val('#' + place);
+    // If place is 1, set the color to gold, silver for 2, and bronze for 3
+    // Color the background of the place cell
+    if (place === 1) {
+        row.find('.place').css('background-color', '#FFD700');
+    } else if (place === 2) {
+        row.find('.place').css('background-color', '#C0C0C0');
+    } else if (place === 3) {
+        row.find('.place').css('background-color', '#CD7F32');
+    } else {
+        row.find('.place').css('background-color', 'white');
+    }
+}
+
 function updateRowTotal(row) {
     var judgeInputs = row.find('.judge-input'); // Get all judge inputs in this row
     
@@ -55,18 +75,45 @@ function updateRowTotalMinusTime(row) {
     }
 }
 
-function updateRow(row) {
-    updateRowTotal(row);
-    updateRowTotalMinusTime(row);
-}
-
 function updateAllRows() {
+    // Update scores
     $('#slam-table-rows .poet-row').each(function() {
-        updateRow($(this));
+        updateRowTotal($(this));
+        updateRowTotalMinusTime($(this));
     });
+
+    // Get row total scores after time in a list
+    var rows = [];
+    var n = 0;
+    $('#slam-table-rows .poet-row').each(function() {
+        var totalMinusTime = parseFloat($(this).find('.total-time-score').val());
+        rows.push({
+            row_num: n++,
+            row: $(this),
+            totalMinusTime: totalMinusTime
+        });
+    });
+
+    // Sort the list by total score, descending
+    rows.sort(function(a, b) {
+        return b.totalMinusTime - a.totalMinusTime;
+    });
+
+    // Update rows
+    place = 1;
+    for (var i = 0; i < rows.length; i++) {
+        // Use place 0 for row nums < sacrificial poet count
+        if (rows[i].row_num < SACRIFICIAL_POET_COUNT) {
+            updateRowPlace(rows[i].row, 0);
+        } else {
+            updateRowPlace(rows[i].row, place);
+            place++;
+        }
+    }
 }
 
 function getRowData(row) {
+    var place = row.find('.place').val();
     var poetName = row.find('.poet-name').val();
     var judgeInputs = row.find('.judge-input');
     var scores = judgeInputs.map(function() {
@@ -77,6 +124,7 @@ function getRowData(row) {
     var totalScore = row.find('.total-score').val();
     var totalMinusTimeScore = row.find('.total-time-score').val();
     return {
+        place: place,
         poetName: poetName,
         scores: scores,
         totalScore: totalScore,
