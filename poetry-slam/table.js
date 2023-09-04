@@ -1,6 +1,7 @@
 const INITIAL_JUDGE_COUNT = 3;
 const INITIAL_POET_COUNT = 2;
 const SACRIFICIAL_POET_COUNT = 1;
+const MAX_JUDGE_COUNT = 5;
 
 let judgeCount = INITIAL_JUDGE_COUNT;
 let poetCount = INITIAL_POET_COUNT;
@@ -95,12 +96,14 @@ function addPoet() {
 }
 
 function addJudge() {
-    updateHistory();
-    judgeCount++;
-    saveRowValues();
-    renderTable();
-    loadRowValues();
-    saveCounts();
+    if (judgeCount < MAX_JUDGE_COUNT) {
+        updateHistory();
+        judgeCount++;
+        saveRowValues();
+        renderTable();
+        loadRowValues();
+        saveCounts();
+    }
 }
 
 function removePoet() {
