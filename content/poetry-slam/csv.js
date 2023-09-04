@@ -34,8 +34,40 @@ function downloadCSV() {
     for (let i = 0; i < poetCount; i++) {
         const poetData = rowsData[i];
         csvContent += `${poetData.place},${poetData.poetName}`;
-        for (const score of poetData.scores) {
-            csvContent += `,${score}`;
+
+        // If there are 5 judges, find min and max scores
+        if (judgeCount === 5) {
+            const minScore = Math.min(...poetData.scores);
+            const maxScore = Math.max(...poetData.scores);
+
+            // Check if scores are all valid
+            let allValid = true;
+            for (const score of poetData.scores) {
+                // Check if score is an empty string
+                if (score === '') {
+                    allValid = false;
+                    break;
+                }
+            }
+
+            // Surround min and max scores with parentheses
+            var minScoreFound = false;
+            var maxScoreFound = false;
+            for (const score of poetData.scores) {
+                if (score == minScore && !minScoreFound && allValid) {
+                    csvContent += `,"(${score})"`;
+                    minScoreFound = true;
+                } else if (score == maxScore && !maxScoreFound && allValid) {
+                    csvContent += `,"(${score})"`;
+                    maxScoreFound = true;
+                } else {
+                    csvContent += `,${score}`;
+                }
+            }
+        } else {
+            for (const score of poetData.scores) {
+                csvContent += `,${score}`;
+            }
         }
         csvContent += `,${poetData.totalScore}`;
 
