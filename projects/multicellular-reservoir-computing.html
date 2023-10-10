@@ -65,22 +65,22 @@
         <div class="projects-article-date">
             Published on May 10, 2023
             <br/>
-            Last modified on May 30, 2023
+            Last modified on Sep 08, 2023
         </div>
         <div class="projects-article-body">
             <p><a target="_blank" href="https://doi.org/10.1371/journal.pone.0282122">Multicellular reservoir computing</a> is a simulation I&#8217;ve done of an arbitrary population of cells in order to analyze its computational&nbsp;capacity.</p>
-<p>In the simulation space, there is an input signal which is represented as a varying source of a molecule concentration. The population of cells is able to register the presence of the input molecule above a certain threshold, allowing for a binary interpretation of the signal. Given a binary signal and a time window, we can test whether the population can perhaps calculate a bunch of boolean functions. E.g. the median function on a window of an odd number of bits tells us whether there&#8217;s more ones or zeros in the window. The other commonly tested function is parity, which tells us whether there&#8217;s an even or odd number of ones in the&nbsp;window.</p>
-<p>Cells are arranged in square layers along the input signal source axis. Throughout the simulation, the input signal comes from one face of the simulation space, varying between low and high levels and stimulating the cell community. The cells that receive the signal communicate with other cells using extracellular signaling molecules (ESMs) and propagate the information through further layers. A number of cells on the other side are used as output, and <span class="caps">LASSO</span> regression is trained on their gene&nbsp;values.</p>
+<p>In the simulation space, there is an input signal which is represented as a varying source of a molecule concentration. The population of cells is able to register the presence of the input molecule above a certain threshold, allowing for a binary interpretation of the signal. Given the binary signal and a time window, we can test whether the population can calculate a bunch of boolean functions. E.g. the median function on a window of an odd number of bits determines whether there&#8217;s more ones or zeros in the window. Another tested function is parity, which tells us whether there&#8217;s an even or odd number of ones in the&nbsp;window.</p>
+<p>Throughout the simulation, the input signal comes from one face of the simulation space, varying between low and high levels and stimulating the cell community. Cells are spatially arranged in square layers along the input signal source axis. The cells that receive the signal communicate with other cells using extracellular signaling molecules (ESMs) and propagate the information to further layers. A number of cells on the other side are used as output, and <span class="caps">LASSO</span> regression is trained on their gene&nbsp;values.</p>
 <p align="center">
   <img src="/static/images/multicell-rc/cell_layers.png" width="75%"/>
 </p>
 
-<p>Each cell simulates gene regulation with a random boolean network. The number of cell strains can be specified, where every strain has its own boolean network topology and every cell is assigned a random strain. Every cell has a randomized initial state for all of its&nbsp;genes.</p>
+<p>Each cell simulates gene regulation with a random boolean network. The number of cell strains can be specified, where every strain has its own boolean network topology and every cell is assigned a random strain. Every cell has a randomized initial state for all of its&nbsp;genes:</p>
 <p align="center">
   <img src="/static/images/multicell-rc/gene_network.png" width="70%"/>
 </p>
 
-<p>Within the boolean network, the first gene is reserved for the input signal value, received from the environment. The following N genes are reserved for ESMs input, one gene for each of N ESMs. These genes switch on when the environment <span class="caps">ESM</span> level is above the specified threshold. Another N genes are reserved after that for <span class="caps">ESM</span> output, secreting the <span class="caps">ESM</span> if the gene is switched on. The rest of the genes comprise the internal genes of the cell, implementing the logic of the boolean network. Genes are randomly wired, with the condition that the input genes can only be read from and that the <span class="caps">ESM</span> output genes can only be written&nbsp;to.</p>
+<p>Within the boolean network, the first gene (0_0) is reserved for the input signal value, received from the environment. The following N genes are reserved for ESMs input, one gene for each of N ESMs. These genes switch on when the environment <span class="caps">ESM</span> level is above the specified threshold. Another N genes are reserved after that for <span class="caps">ESM</span> output, secreting the <span class="caps">ESM</span> if the gene is switched on. The rest of the genes comprise the internal genes of the cell, implementing the logic of the boolean network. Genes are randomly wired, with the condition that the input genes can only be read from and that the <span class="caps">ESM</span> output genes can only be written&nbsp;to.</p>
 <p><br/>
 <br/></p>
 <div class="citation">
