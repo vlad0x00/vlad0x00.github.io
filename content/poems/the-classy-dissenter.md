@@ -1,9 +1,10 @@
 Title: The classy dissenter
 Date: 2023-02-24
+ModDate: 2023-09-08
 
 Of rebel nation far 'way born  
 in eyes of foe as bleeding thorn  
-To ones in need she gave her faith  
+To ones in need she pledged her faith  
 and clean of blood a promised slate  
 
 Her heart divided parts in two  

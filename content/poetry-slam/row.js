@@ -25,43 +25,48 @@ function updateRowTotal(row) {
     // Bool to check if all inputs are valid
     var allValid = true;
     var minScore = -1;
+    var minScoreIdx = -1;
     var maxScore = -1;
+    var maxScoreIdx = -1;
+    var idx = 0;
     judgeInputs.each(function() {
         var value = $(this).val();
         if ($.isNumeric(value)) {
             if (minScore === -1 || value < minScore) {
                 minScore = value;
+                minScoreIdx = idx;
             }
             if (maxScore === -1 || value > maxScore) {
                 maxScore = value;
+                maxScoreIdx = idx;
             }
             total += parseFloat(value);
         } else {
             allValid = false;
         }
+        idx++;
     });
 
     // If all inputs are valid and we have 5 judges, subtract the min and max scores
-    if (allValid && judgeInputs.length === MAX_JUDGE_COUNT) {
-        total -= minScore;
-        total -= maxScore;
+    if (allValid) {
+        if (judgeInputs.length === 5) {
+            total -= minScore;
+            total -= maxScore;
+        } else if (judgeInputs.length === 4) {
+            total -= minScore;
+        }
 
         // Color the text of min and max score inputs red
         // Only color at most one of each
         // If all scores are the same, still color two inputs
-        var minScoreFound = false;
-        var maxScoreFound = false;
+        var idx = 0;
         judgeInputs.each(function() {
-            var value = $(this).val();
-            if (value === minScore && !minScoreFound) {
+            if ((judgeInputs.length === 5 && (idx === minScoreIdx || idx === maxScoreIdx)) || (judgeInputs.length === 4 && idx === minScoreIdx)) {
                 $(this).css('color', 'red');
-                minScoreFound = true;
-            } else if (value === maxScore && !maxScoreFound) {
-                $(this).css('color', 'red');
-                maxScoreFound = true;
             } else {
                 $(this).css('color', 'black');
             }
+            idx++;
         });
     }
 
