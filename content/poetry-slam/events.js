@@ -54,7 +54,7 @@ $(document).ready(function() {
 
     $(document).on('input', '.judge-input, .time-min, .time-sec', focusChangeOnInput);
 
-    $(document).on('change', '.poet-name, .judge-input, .time-min, .time-sec', handleRowInputChange);
+    $(document).on('change', '.poet-name, .poet-email, .judge-input, .time-min, .time-sec', handleRowInputChange);
 
     $(document).on('change', '#max-time-min, #max-time-sec, #time-penalty-step-min, #time-penalty-step-sec, #penalty-per-step', handleParametersChange);
 });

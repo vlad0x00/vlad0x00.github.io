@@ -12,11 +12,14 @@ function getHeaderHTML(judgeCount) {
         <div class="d-flex flex-wrap text-center border-bottom pb-2 mb-2">
             <div class="col-12 col-sm-1">
                 Place
-            </div>    
-            <div class="col-12 col-sm-2">
-                Poet
             </div>
-            <div class="col-12 col-sm-6">
+            <div class="col-12 col-sm-3 ps-1 pe-1">
+                <div class="row">
+                    <div class="col-6 col-sm-6 ps-6 pe-1">Poet</div>
+                    <div class="col-6 col-sm-6 ps-1 pe-6">Email</div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-5">
                 <div class="row">
                     ${Array.from({ length: judgeCount }, (_, i) => `<div class="col">Judge ${i + 1}</div>`).join('')}
                 </div>
@@ -54,8 +57,13 @@ function getRowHTML(judgeCount, bgColor = "transparent") {
             <div class="col-12 col-sm-1 ps-1 pe-1">
                 <input type="text" class="form-control text-center place" disabled>
             </div>
-            <div class="col-12 col-sm-2 ps-1 pe-1"><input type="text" class="form-control text-center poet-name"></div>
-            <div class="col-12 col-sm-6 ps-1 pe-1"><div class="row">${getJudgeInputHTML().repeat(judgeCount)}</div></div>
+            <div class="col-12 col-sm-3 ps-1 pe-1">
+                <div class="row">
+                    <div class="col-6 col-sm-6 ps-6 pe-1"><input type="text" class="form-control text-center poet-name"></div>
+                    <div class="col-6 col-sm-6 ps-1 pe-6"><input type="email" class="form-control text-center poet-email"></div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-5 ps-1 pe-1"><div class="row">${getJudgeInputHTML().repeat(judgeCount)}</div></div>
             <div class="col-12 col-sm-3 ps-1 pe-1">
                 <div class="row">
                     <div class="col"><input type="text" class="form-control text-center total-score" disabled></div>

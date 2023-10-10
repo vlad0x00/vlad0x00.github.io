@@ -24,6 +24,7 @@ function updateHistory() {
     }
     redoStack = [];  // Clear the redo stack on new action
     saveHistory();
+    localStorage.setItem('lastModified', Date.now());
 }
 
 function undo() {

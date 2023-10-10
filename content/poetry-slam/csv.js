@@ -24,7 +24,7 @@ function downloadCSV() {
     // Separate parameters from data with a blank line
     csvContent += '\n';
 
-    csvContent += 'Place,Poet';
+    csvContent += 'Place,Poet,Email';
     for (let i = 1; i <= judgeCount; i++) {
         csvContent += `,Judge ${i}`;
     }
@@ -33,7 +33,7 @@ function downloadCSV() {
 
     for (let i = 0; i < poetCount; i++) {
         const poetData = rowsData[i];
-        csvContent += `${poetData.place},${poetData.poetName}`;
+        csvContent += `${poetData.place},${poetData.poetName},${poetData.poetEmail}`;
 
         const minScore = Math.min(...poetData.scores);
         const maxScore = Math.max(...poetData.scores);
@@ -81,7 +81,12 @@ function downloadCSV() {
         csvContent += `,${poetData.totalMinusTimeScore}\n`;
     }
 
-    const date = new Date();
+    // See if localStorage has "lastModified"
+    const lastModified = localStorage.getItem('lastModified');
+    var date = new Date();
+    if (lastModified) {
+        date = new Date(parseInt(lastModified));
+    }
     const yyyy = date.getFullYear();
     const mm = String(date.getMonth() + 1).padStart(2, '0');
     const dd = String(date.getDate()).padStart(2, '0');

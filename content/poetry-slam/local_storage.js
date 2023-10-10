@@ -10,6 +10,7 @@ function saveRowValues() {
     const poets = [];
     $('#slam-table-rows .poet-row').each(function() {
         const poetName = $(this).find('.poet-name').val();
+        const poetEmail = $(this).find('.poet-email').val();
         const judgeInputs = $(this).find('.judge-input');
         const scores = judgeInputs.map(function() {
             return $(this).val();
@@ -18,6 +19,7 @@ function saveRowValues() {
         const timeSec = $(this).find('.time-sec').val();
         poets.push({
             poetName: poetName,
+            poetEmail: poetEmail,
             scores: scores,
             timeMin: timeMin,
             timeSec: timeSec
@@ -33,6 +35,7 @@ function loadRowValues() {
         const poetData = poetsData[index];
         if (poetData) {
             $(this).find('.poet-name').val(poetData.poetName);
+            $(this).find('.poet-email').val(poetData.poetEmail);
             const judgeInputs = $(this).find('.judge-input');
             poetData.scores.forEach((score, i) => {
                 if (judgeInputs[i]) {

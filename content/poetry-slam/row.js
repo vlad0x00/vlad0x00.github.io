@@ -152,6 +152,7 @@ function updateAllRows() {
 function getRowData(row) {
     var place = row.find('.place').val();
     var poetName = row.find('.poet-name').val();
+    var poetEmail = row.find('.poet-email').val();
     var judgeInputs = row.find('.judge-input');
     var scores = judgeInputs.map(function() {
         return $(this).val();
@@ -163,6 +164,7 @@ function getRowData(row) {
     return {
         place: place,
         poetName: poetName,
+        poetEmail: poetEmail,
         scores: scores,
         totalScore: totalScore,
         timeMin: timeMin,
