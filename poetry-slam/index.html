@@ -4,6 +4,8 @@
     <title>Poetry Slam</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js" integrity="sha512-XMVd28F1oH/O71fzwBnV7HucLxVwtxf26XV8P4wPk26EDxuGZ91N8bsOttmnomcCD3CS5ZMRL50H0GgOHvegtg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js" integrity="sha512-dfX5uYVXzyU8+KHqj8bjo7UkOdg18PaOtpa48djpNbZHwExddghZ+ZmzWT06R5v6NSk3ZUfsH6FNEDepLx9hPQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" type="text/css" href="/poetry-slam/styles.css">
 </head>
 <body>
@@ -31,6 +33,15 @@
                 </div>
                 <div class="row mb-4">
                     <div class="col-6 col-md-2 p-1"><button id="download-csv" class="btn btn-warning w-100 mt-3" type="button">Download CSV</button></div>
+                </div>
+                <div class="row mb-4">
+                    Tabulation (zip CSV files together and upload):
+                </div>
+                <div class="row mb-4">
+                    <div class="col-6 col-md-2 p-1">
+                        <input type="file" id="zipFileInput" />
+                        <button class="btn btn-warning w-100 mt-3" onclick="processZip()">Process</button>
+                    </div>
                 </div>
 
                 <div class="row">
@@ -87,6 +98,7 @@
     <script src="/poetry-slam/local_storage.js"></script>
     <script src="/poetry-slam/table.js"></script>
     <script src="/poetry-slam/csv.js"></script>
-    <script src="/poetry-slam/events.js"></script>    
+    <script src="/poetry-slam/events.js"></script>
+    <script src="/poetry-slam/tabulate.js"></script>    
 </body>
 </html>
