@@ -30,8 +30,8 @@ function updateRowTotal(row) {
     var maxScoreIdx = -1;
     var idx = 0;
     judgeInputs.each(function() {
-        var value = $(this).val();
-        if ($.isNumeric(value)) {
+        var value = parseFloat($(this).val()); // Parse the value as a float here
+        if (!isNaN(value)) {
             if (minScore === -1 || value < minScore) {
                 minScore = value;
                 minScoreIdx = idx;
@@ -40,7 +40,7 @@ function updateRowTotal(row) {
                 maxScore = value;
                 maxScoreIdx = idx;
             }
-            total += parseFloat(value);
+            total += value; // Already parsed as float
         } else {
             allValid = false;
         }
@@ -137,7 +137,7 @@ function updateAllRows() {
     });
 
     // Update rows
-    place = 1;
+    let place = 1;
     for (var i = 0; i < rows.length; i++) {
         // Use place 0 for row nums < sacrificial poet count
         if (rows[i].row_num < SACRIFICIAL_POET_COUNT) {
@@ -155,12 +155,12 @@ function getRowData(row) {
     var poetEmail = row.find('.poet-email').val();
     var judgeInputs = row.find('.judge-input');
     var scores = judgeInputs.map(function() {
-        return $(this).val();
+        return parseFloat($(this).val());
     }).get();
-    var timeMin = row.find('.time-min').val();
-    var timeSec = row.find('.time-sec').val();
-    var totalScore = row.find('.total-score').val();
-    var totalMinusTimeScore = row.find('.total-time-score').val();
+    var timeMin = parseInt(row.find('.time-min').val(), 10);
+    var timeSec = parseInt(row.find('.time-sec').val(), 10);
+    var totalScore = parseFloat(row.find('.total-score').val());
+    var totalMinusTimeScore = parseFloat(row.find('.total-time-score').val());
     return {
         place: place,
         poetName: poetName,
