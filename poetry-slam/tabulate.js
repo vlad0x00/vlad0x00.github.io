@@ -13,7 +13,7 @@ async function processZip() {
     }
 
     // Convert scores object to CSV and download
-    downloadCSV(scores);
+    downloadCSVTabulated(scores);
 }
 
 
@@ -41,7 +41,7 @@ function processCSV(fileData, scores) {
     });
 }
 
-function downloadCSV(scores) {
+function downloadCSVTabulated(scores) {
     const rows = Object.entries(scores).map(([email, data]) => ({
         email,
         name: data.name,
