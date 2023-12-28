@@ -63,13 +63,30 @@ hr {
     border: 0.05rem solid rgba(255, 255, 255, 0.0);
     border-radius: 0.15rem;
     text-align: center;
-    margin: 0.5rem 0rem 1rem 0rem;
     height: 1.7rem;
     line-height: 1.7rem;
     /* Blur the background of the element */
     backdrop-filter: blur(1rem);
     /* Grey background */
     background-color: rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 767.98px) {
+    .header-window {
+        margin: 1rem 0rem 1rem 0rem;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .header-window {
+        margin: 0.75rem 0rem 1rem 0rem;
+    }
+}
+
+@media (min-width: 992px) {
+    .header-window {
+        margin: 0.5rem 0rem 1rem 0rem;
+    }
 }
 
 .main-window {
@@ -83,7 +100,6 @@ hr {
     background-color: rgba(0, 0, 0, 0.5);
 }
 
-/* Example of custom responsive typography */
 @media (max-width: 767.98px) {
     .main-window {
         padding: 1rem 1rem 2rem 1rem;
