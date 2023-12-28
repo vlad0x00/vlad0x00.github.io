@@ -4,7 +4,7 @@ html {
 }
 
 body {
-    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-family: 'Roboto', sans-serif;
     /* font size */
     background-image: url("../images/bg.jpg");
     background-size: cover;
@@ -26,7 +26,7 @@ a:link, a:visited, a:active, a:focus, a:hover {
 
 .header-window a:link, .header-window a:visited, .header-window a:active, .header-window a:focus {
    text-decoration: none;
-   color: #BBBBBB;
+   color: #AAAAAA;
    outline: 0;
    -webkit-transition: color 0.1s;
    transition: color 0.1s;
@@ -50,17 +50,17 @@ hr {
     /* Blur the background of the element */
     backdrop-filter: blur(20px);
     /* Grey background */
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.55);
 }
 
 .main-window {
     border: 1px solid rgba(255, 255, 255, 0.0);
     border-radius: 4px;
     margin: 10px auto 40px auto;
-    padding: 20px min(4%, 30px) 20px min(4%, 30px);
+    padding: 20px min(4%, 60px) 20px min(4%, 60px);
     min-height: 400px;
     /* Blur the background of the element */
     backdrop-filter: blur(20px);
     /* Grey background */
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.55);
 }
