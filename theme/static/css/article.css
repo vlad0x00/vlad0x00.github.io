@@ -13,11 +13,11 @@
 }
 
 [class$="-article-title"] {
-    font-size: 36px;
+    font-size: 1.8rem;
     font-weight: bold;
     display: table;
     margin: auto;
-    margin-bottom: 2px;
+    margin-bottom: 0.1rem;
     position: relative;
     text-align: center;
 }
@@ -31,7 +31,7 @@
     display: table;
     margin: auto;
     position: relative;
-    margin-bottom: 20px;
+    margin-bottom: 1rem;
 }
 
 [class$="-article-tags"] a:link, [class$="-article-tags"] a:visited, [class$="-article-tags"] a:active, [class$="-article-tags"] a:focus, [class$="-article-tags"] a:hover {
@@ -41,13 +41,13 @@
  }
 
 [class$="-article-date"] {
-    font-size: 16px;
+    font-size: 0.8rem;
     /* Light grey font color */
     color: #dbdbdb;
     display: table;
     margin: auto;
     position: relative;
-    margin-bottom: 30px;
+    margin-bottom: 1.5rem;
 }
 
 .poems-article-body {
@@ -67,5 +67,5 @@
 }
 
 .citation {
-    font-size: 16px;
+    font-size: 0.8rem;
 }
