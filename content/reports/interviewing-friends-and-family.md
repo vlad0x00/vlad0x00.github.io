@@ -10,6 +10,7 @@ I've done this with three friends and it was a bonding experience with each one 
 I have also done this with my parents. Time with parents is limited, very limited once you're an adult. And perhaps it's just me, but I don't have a habit of asking my parents deep questions about their life and most of what I know is what they've told me of their own accord. This interview in particular ended up being emotional to the point of tears, and illuminating of the context I grew up in. I'd rank interviewing parents as the top priority, because of the aforementioned time limitation and because of possibly imbalance between how much we might perceive to know about our parents' lives versus how much we actually do. It goes without saying that parents are a huge factor in our lives, whether they were present or not while we were growing up.
 
 As in a podcast, you should come up with the questions tailored to the person(s) you're interviewing. Nonetheless, in the interviews I've done, some questions were common enough that it was only sensible to ask them to everyone. E.g., roughly in this order:  
+  
 1. _"Tell me about yourself from the beginning, where are you from, what was your childhood like, favourite childhood memory, etc."_  
 I'd ask this even if I knew the person since we were kids. I wouldn't dwell for _too_ long on this question this early, though. And for some people, these can be sensitive topics.  
 2. I like to proceed here with lighthearted questions, e.g.: _"What's your favourite childhood video game, current or all time favourite music band, cats or dogs or frogs or snakes or... "_ anyway  
@@ -23,6 +24,7 @@ If the person professionally works in, say, video games or music, it's not a bad
 9. And the job-interview-like question: _"How do you see your life in the next year, five years, and ten years?"_
 
 Based on the interviews so far...  
+  
 1. Recording the interviews is basically a must, unless the interviewee prefers otherwise. Anyway, If you go at any real length, you'll absolutely forget a lot of details of the answers you've been given. It should also go without saying that these recordings are something to cherish. I keep the recording private and only share them with the interviewee.  
 2. I'd advise against giving too much of your own opinions on the questions you ask. It easily turns into a discussion that centers on things external to the interviewee. The point here is to understand the interviewee, and in the context of your relationship. Deep discussions about other points should be had separately, except for letting the interviewee express their view as deeply as they desire.
 
