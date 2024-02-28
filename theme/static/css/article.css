@@ -8,8 +8,27 @@
     font-family: "Courier New", Courier, monospace;
     display: table;
     margin: auto;
-    position: relative;
-    left: 1%;
+}
+
+@media (max-width: 767.98px) {
+    .poems-article-text {
+        position: relative;
+        left: 0%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .poems-article-text {
+        position: relative;
+        left: 0.5%;
+    }
+}
+
+@media (min-width: 992px) {
+    .poems-article-text {
+        position: relative;
+        left: 1%;
+    }
 }
 
 [class$="-article-title"] {
@@ -50,9 +69,25 @@
     margin-bottom: 1.5rem;
 }
 
-.poems-article-body {
-    position: relative;
-    left: 3%;
+@media (max-width: 767.98px) {
+    .poems-article-body {
+        position: relative;
+        left: 0%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .poems-article-body {
+        position: relative;
+        left: 1.5%;
+    }
+}
+
+@media (min-width: 992px) {
+    .poems-article-body {
+        position: relative;
+        left: 3%;
+    }
 }
 
 .projects-article-body, .reports-article-body {

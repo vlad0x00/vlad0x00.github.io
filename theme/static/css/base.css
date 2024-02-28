@@ -3,7 +3,6 @@ html {
     height: 100%;
 }
 
-/* Example of custom responsive typography */
 @media (max-width: 767.98px) {
     html {
       font-size: 16px;
@@ -57,6 +56,32 @@ a:link, a:visited, a:active, a:focus, a:hover {
 
 hr {
     border-color: rgba(255, 255, 255, 0.2);
+}
+
+.header-row {
+    margin-left: 1%;
+    margin-right: 1%;
+}
+
+
+@media (min-width: 768px) {
+    .header-row {
+        margin-left: 24.5%;
+        margin-right: 24.5%;
+    }
+}
+
+.main-row {
+    margin-left: 1%;
+    margin-right: 1%;
+}
+
+
+@media (min-width: 768px) {
+    .main-row {
+        margin-left: 16%;
+        margin-right: 16%;
+    }
 }
 
 .header-window {

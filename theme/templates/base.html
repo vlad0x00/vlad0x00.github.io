@@ -53,42 +53,26 @@
 
     <div class="container-fluid">
 
-        <div class="row">
-            <div class="col-1 col-md-3"></div>
-            <div class="col-10 col-md-6">
+        <div class="row header-row">
+            <div class="d-none d-md-block col-md-1"></div>
+            <div class="col-12 col-md-10 header-window">
                 <div class="row">
-                    <div class="d-none d-md-block col-md-1"></div>
-                    <div class="col-12 col-md-10 header-window">
-                        <div class="row">
-                            <div class="col-3"><a href="{{ SITEURL }}/reports">Reports</a></div>
-                            <div class="col-3"><a href="{{ SITEURL }}/projects">Projects</a></div>
-                            <div class="col-3"><a href="{{ SITEURL }}/poems">Poems</a></div>
-                            <div class="col-3"><a href="{{ SITEURL }}/">About</a></div>
-                        </div>
-                    </div>
-                    <div class="d-none d-md-block col-md-1"></div>
+                    <div class="col-3"><a href="{{ SITEURL }}/reports">Reports</a></div>
+                    <div class="col-3"><a href="{{ SITEURL }}/projects">Projects</a></div>
+                    <div class="col-3"><a href="{{ SITEURL }}/poems">Poems</a></div>
+                    <div class="col-3"><a href="{{ SITEURL }}/">About</a></div>
                 </div>
             </div>
-            <div class="col-1 col-md-3"></div>
+            <div class="d-none d-md-block col-md-1"></div>
         </div>
-
-        <div class="row">
-
-            <div class="col-1 col-md-2"></div>
-            <div class="col-10 col-md-8">
-                <div class="row">
-                    <div class="d-none d-md-block col-md-1"></div>
-                    <div class="col-12 col-md-10 main-window">
-                        {% block content %}
-                        {% endblock %}
-                    </div>
-                    <div class="d-none d-md-block col-md-1"></div>
-                </div>
+        <div class="row main-row">
+            <div class="d-none d-md-block col-md-1"></div>
+            <div class="col-12 col-md-10 main-window">
+                {% block content %}
+                {% endblock %}
             </div>
-            <div class="col-1 col-md-2"></div>
-
+            <div class="d-none d-md-block col-md-1"></div>
         </div>
-
     </div>
 
 </body>
