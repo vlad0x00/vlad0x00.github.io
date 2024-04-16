@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>Vladimir Nikolic - Identifier&nbsp;naming</title>
+    <meta charset="utf-8" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="Vladimir Nikolic" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <link href="https://vlich.net/" type="application/rss+xml" rel="alternate" title="Vladimir Nikolic Full RSS Feed" />
+
+    <!-- Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://vlich.net/theme/css/base.css" />
+    <link rel="shortcut icon" type="image/png" href="https://vlich.net/theme/images/favicon.png" />
+
+
+
+    <meta name="tags" content="software-engineering" />
+
+    <link rel="stylesheet" type="text/css" href="https://vlich.net/theme/css/article.css"/>
+</head>
+
+<body>
+
+    <div class="container-fluid">
+
+        <div class="row header-row">
+            <div class="d-none d-md-block col-md-1"></div>
+            <div class="col-12 col-md-10 header-window">
+                <div class="row">
+                    <div class="col-3"><a href="https://vlich.net/reports">Reports</a></div>
+                    <div class="col-3"><a href="https://vlich.net/projects">Projects</a></div>
+                    <div class="col-3"><a href="https://vlich.net/poems">Poems</a></div>
+                    <div class="col-3"><a href="https://vlich.net/">About</a></div>
+                </div>
+            </div>
+            <div class="d-none d-md-block col-md-1"></div>
+        </div>
+        <div class="row main-row">
+            <div class="d-none d-md-block col-md-1"></div>
+            <div class="col-12 col-md-10 main-window">
+    <div class="reports-article-text">
+        <div class="reports-article-title">Identifier&nbsp;naming</div>
+        <div class="reports-article-tags">
+            <a href="https://vlich.net/tag/software-engineering">#software-engineering</a>
+        </div>
+        <div class="reports-article-date">
+            Published on Apr 15, 2024
+        </div>
+        <div class="reports-article-body">
+            <p>Here&#8217;s some patterns I&#8217;ve noticed in what I consider high quality code when it comes to coming up with names for identifiers for, e.g.,&nbsp;variables.</p>
+<p>Names should be as verbose as necessary to understand the meaning <em>in the context in which the identifer is found</em>, and not more than that. Too verbose and the code is bulky, hard to edit, and hard to understand by glancing over. Not verbose enough and the code is unclear in meaning. Context here could mean the project it is in, the function the identifier is used in (e.g. as a parameter), or the class it&#8217;s a member&nbsp;of.</p>
+<ul>
+<li>
+<p>Describe the identifier using only words necessary to clarify its meaning in the given context. If you have a function declaration <code>move_atom(AtomID id)</code> that simply changes the position of the given atom, it&#8217;s sufficient for the parameter to be just named <code>id</code>, instead of, e.g. <code>atom_id</code>. However, the <code>atom_</code> prefix might be useful in a function that deals with multiple types of IDs. So if a function also deals with a <code>bond_id</code>, given the situation, it&#8217;s good to add the prefix to clarify the distinction between the two&nbsp;IDs.</p>
+</li>
+<li>
+<p>Ordinal identifiers should only be used if order matters. If you have a function declaration like <code>angle(Point pt1, Point pt2, Point pt3)</code>, the order would matter if <code>pt2</code> is the vertex of the angle. However, if you have <code>plane(Point pt1, Point pt2, Point pt3)</code>, the order of the points doesn&#8217;t matter and a naming scheme that doesn&#8217;t necessarily imply the order is better. So something like <code>plane(Point pt_i, Point pt_j, Point pt_k)</code> would be a better&nbsp;option.</p>
+<p>The rationale is that the code that calls <code>plane</code> might have a bunch of points, such as <code>pt1</code>, <code>pt2</code>, <code>pt3</code>, <code>pt4</code>, &#8230; <code>ptn</code>. And this code might need to call plane like <code>plane(pt2, pt3, pt4)</code>. If we declare <code>plane(Point pt1, Point pt2, Point pt3)</code>, a static code analyzer, or a person reading the code, might flag this as a bug, seeing as we used <code>pt2</code> in place of parameter <code>pt1</code>, and <code>pt3</code> in place of parameter <code>pt2</code>. To avoid confusion with ordering, if the order doesn&#8217;t matter, the identifiers should signal&nbsp;that.</p>
+</li>
+<li>
+<p>Abbreviations should be used in two&nbsp;cases:</p>
+<ol>
+<li>When they&#8217;re commonly understood. E.g. <code>num</code> is commonly understood to mean <code>number</code> and <code>idx</code> to mean <code>index</code>. </li>
+<li>When the meaning is clear from the context. E.g. if you have a class <code>Projectile</code>, <code>pos</code>, <code>vel</code>, and <code>accel</code> are sensible names for <code>position</code>, <code>velocity</code> and <code>acceleration</code> members as the context clarifies the abbreviations. In a different scenario, these names, and especially <code>vel</code> might not be&nbsp;clear.</li>
+</ol>
+</li>
+</ul>
+        </div>
+    </div>
+            </div>
+            <div class="d-none d-md-block col-md-1"></div>
+        </div>
+    </div>
+
+</body>
+</html>
