@@ -15,6 +15,11 @@
         position: relative;
         left: 0%;
     }
+
+    .poems-article-body {
+        position: relative;
+        left: 0%;
+    }
 }
 
 @media (min-width: 768px) and (max-width: 991.98px) {
@@ -22,12 +27,26 @@
         position: relative;
         left: 0.5%;
     }
+
+    .poems-article-body {
+        position: relative;
+        left: 1.5%;
+    }
 }
 
 @media (min-width: 992px) {
     .poems-article-text {
         position: relative;
         left: 1%;
+    }
+
+    .poems-article-body {
+        position: relative;
+        left: 3%;
+    }
+
+    .main-window {
+        padding: 1rem 3.5rem 2rem 3.5rem;
     }
 }
 
@@ -67,27 +86,6 @@
     margin: auto;
     position: relative;
     margin-bottom: 1.5rem;
-}
-
-@media (max-width: 767.98px) {
-    .poems-article-body {
-        position: relative;
-        left: 0%;
-    }
-}
-
-@media (min-width: 768px) and (max-width: 991.98px) {
-    .poems-article-body {
-        position: relative;
-        left: 1.5%;
-    }
-}
-
-@media (min-width: 992px) {
-    .poems-article-body {
-        position: relative;
-        left: 3%;
-    }
 }
 
 .projects-article-body, .reports-article-body {
