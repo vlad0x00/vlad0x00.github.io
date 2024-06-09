@@ -148,3 +148,21 @@ hr {
         padding: 1rem 5rem 2rem 5rem;
     }
 }
+
+.masonry-grid {
+    margin-left: -10px;
+    width: calc(100% + 10px);
+}
+
+.grid-item {
+    box-sizing: border-box;
+    margin-bottom: 0.5rem;
+    width: 49%;
+    float: left;
+}
+
+.grid-item img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
