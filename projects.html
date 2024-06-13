@@ -14,13 +14,18 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 
+    <!-- Masonry -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/4.2.2/masonry.pkgd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js"></script>
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" type="text/css" href="https://vlich.net/theme/css/base.css" />
-    <link rel="shortcut icon" type="image/png" href="https://vlich.net/theme/images/favicon.png" />
+    <link rel="shortcut icon" type="image/png" href="https://vlich.net/theme/img/favicon.png" />
 
 
 
@@ -51,6 +56,8 @@
             <!-- If at least one article is in the category, print the tag -->
             <!-- If at least one article is in the category, print the tag -->
             <!-- If at least one article is in the category, print the tag -->
+            <!-- If at least one article is in the category, print the tag -->
+            <!-- If at least one article is in the category, print the tag -->
             <a href="https://vlich.net/tag/bioinformatics">#bioinformatics</a>
             <!-- If at least one article is in the category, print the tag -->
             <a href="https://vlich.net/tag/drug-design">#drug-design</a>
@@ -58,6 +65,7 @@
             <a href="https://vlich.net/tag/genomics">#genomics</a>
             <!-- If at least one article is in the category, print the tag -->
             <a href="https://vlich.net/tag/networks">#networks</a>
+            <!-- If at least one article is in the category, print the tag -->
             <!-- If at least one article is in the category, print the tag -->
             <!-- If at least one article is in the category, print the tag -->
             <a href="https://vlich.net/tag/signal-processing">#signal-processing</a>
@@ -74,7 +82,11 @@
                 <div class="projects-category-article-summary">
                     Published on Feb 11, 2024
                 <br/>
-                Currently preoccupied with making the molecular simulation platform AtomForge performant, robust, and intuitive at HTuO Biosciences :)
+                    Building a molecular simulator for drug design.
+                    <br/>
+                    #bioinformatics
+                    #drug-design
+                    #simulation
                 </div>
             </a>
         </li>
@@ -85,7 +97,12 @@
                 <div class="projects-category-article-summary">
                     Published on May 10, 2023
                 <br/>
-                Multicellular reservoir computing is a simulation I’ve done of an arbitrary populations of cells in order to analyze their computational capacity. In other words, can an arbitrarily given population …
+                    A cell colony doing computation.
+                    <br/>
+                    #bioinformatics
+                    #simulation
+                    #networks
+                    #signal-processing
                 </div>
             </a>
         </li>
@@ -96,7 +113,10 @@
                 <div class="projects-category-article-summary">
                     Published on Apr 20, 2023
                 <br/>
-                btllib is a library I wrote in spare time during my master’s degree because, oh my god is so much of bioinformatics (or scientific in general) code awful. How …
+                    A highly performant genomics C++/Python library.
+                    <br/>
+                    #bioinformatics
+                    #genomics
                 </div>
             </a>
         </li>
@@ -107,6 +127,19 @@
             <div class="d-none d-md-block col-md-1"></div>
         </div>
     </div>
+
+    <script>
+        $(document).ready(function(){
+          var $grid = $('.masonry-grid').imagesLoaded(function(){
+            $grid.masonry({
+              itemSelector: '.grid-item',
+              columnWidth: '.grid-item',
+              percentPosition: true,
+              gutter: 10
+            });
+          });
+        });
+    </script>
 
 </body>
 </html>

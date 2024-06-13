@@ -24,7 +24,7 @@ html {
 body {
     font-family: 'Roboto', sans-serif;
     font-size: 1rem;
-    background-image: url("../images/bg.jpg");
+    background-image: url("../img/bg.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -147,4 +147,22 @@ hr {
     .main-window {
         padding: 1rem 5rem 2rem 5rem;
     }
+}
+
+.masonry-grid {
+    margin-left: -10px;
+    width: calc(100% + 10px);
+}
+
+.grid-item {
+    box-sizing: border-box;
+    margin-bottom: 0.5rem;
+    width: 49%;
+    float: left;
+}
+
+.grid-item img {
+    display: block;
+    width: 100%;
+    height: auto;
 }
