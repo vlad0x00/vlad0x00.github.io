@@ -14,7 +14,7 @@
         {% for tag, articles in tags|sort %}
             <!-- If at least one article is in the category, print the tag -->
             {% if articles|selectattr("category", "equalto", category)|list|length > 0 %}
-            <a href="{{ SITEURL }}/{{ tag.url }}">#{{ tag.name }}</a>
+            <a href="{{ SITEURL }}/{{ tag.url }}">#{{ tag.name }}</a>&nbsp;
             {% endif %}
         {% endfor %}
     </div>
