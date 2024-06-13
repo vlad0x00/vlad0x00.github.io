@@ -31,7 +31,13 @@
                     Published on {{ article.date|strftime(DEFAULT_DATE_FORMAT) }}
                 {% endif %}
                 <br/>
-                {{ article.summary|striptags }}
+                {% if article.synopsis %}
+                    {{ article.synopsis }}
+                    <br/>
+                {% endif %}
+                {% for tag in article.tags %}
+                    #{{ tag.name }}
+                {% endfor %}
                 </div>
                 {% endif %}
             </a>

@@ -1,4 +1,4 @@
-Title: Belgrade cafés
+Title: Belgrade café aesthetics
 Date: 2024-06-09
 Tags: aesthetics, serbia, belgrade
 

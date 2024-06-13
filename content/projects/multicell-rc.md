@@ -2,6 +2,7 @@ Title: Multicellular reservoir computing
 Date: 2023-05-10
 ModDate: 2024-02-11
 Tags: bioinformatics, simulation, networks, signal-processing
+Synopsis: A cell colony doing computation.
 
 <a target="_blank" href="https://doi.org/10.1371/journal.pone.0282122">Multicellular reservoir computing</a> is a simulation I've done of an arbitrary populations of cells in order to analyze their computational capacity. In other words, can an arbitrarily given population of cells be used as a computational device with its enviroment as input.
 

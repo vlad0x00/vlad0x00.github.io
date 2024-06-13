@@ -1,6 +1,7 @@
 Title: Identifier naming
 Date: 2024-04-15
 Tags: software-engineering
+Synopsis: The thought process behind naming things in computing.
 
 Here's some patterns I've noticed in what I consider high quality code when it comes to coming up with names for identifiers for, e.g., variables.
 

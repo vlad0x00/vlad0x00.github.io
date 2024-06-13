@@ -31,10 +31,7 @@
 
 .projects-category-list, .reports-category-list {
     font-size: 1.25rem;
-    display: table;
     margin: auto;
-    position: relative;
-    left: -3%;
 }
 
 .poems-category-list-item {

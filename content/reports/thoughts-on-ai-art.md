@@ -1,6 +1,7 @@
 Title: Thoughts on AI art
 Date: 2024-02-15
 Tags: AI, art
+Synopsis: To what extent to incorporate AI in your art.
 
 Today, OpenAI revealed [Sora](https://openai.com/sora), the text to video AI which is mindblowingly impressive. The advances in AI art pose the question on how much it makes sense for a human to be in control when making images, videos, or perhaps poems, since ChatGPT is capable of writing those.
 

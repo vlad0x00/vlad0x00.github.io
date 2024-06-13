@@ -2,6 +2,7 @@ Title: Interviewing friends and family
 Date: 2023-05-02
 ModDate: 2023-12-27
 Tags: relationships
+Synopsis: Deliberate questions for close people.
 
 I've been "interviewing" my close friends and family in a podcast-like setting where I asked them questions that I didn't find an opportunity to ask otherwise. Here I'm outlining this process as a template.
 
