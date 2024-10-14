@@ -25,7 +25,7 @@
         </div>
         <div class="{{ category }}-article-date">
         {% if category in CATEGORIES_WITH_PUB_DATE and article.date %}
-            Published on {{ article.date|strftime(DEFAULT_DATE_FORMAT) }}
+            Posted on {{ article.date|strftime(DEFAULT_DATE_FORMAT) }}
         {% endif %}
         {% if article.date and article.moddate %}
             <br/>

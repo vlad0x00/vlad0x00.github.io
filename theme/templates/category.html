@@ -28,7 +28,7 @@
                 {% if category in CATEGORIES_WITH_SUMMARY %}
                 <div class="{{ category }}-category-article-summary">
                 {% if category in CATEGORIES_WITH_PUB_DATE and article.date %}
-                    Published on {{ article.date|strftime(DEFAULT_DATE_FORMAT) }}
+                    Posted on {{ article.date|strftime(DEFAULT_DATE_FORMAT) }}
                 {% endif %}
                 <br/>
                 {% if article.synopsis %}
