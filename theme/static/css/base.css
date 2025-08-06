@@ -22,7 +22,7 @@ html {
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Ubuntu', 'Roboto', sans-serif;
     font-size: 1rem;
     background-image: url("../img/bg.jpg");
     background-size: cover;
