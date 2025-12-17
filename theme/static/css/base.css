@@ -166,3 +166,15 @@ hr {
     width: 100%;
     height: auto;
 }
+
+.last-updated {
+    position: fixed;
+    bottom: 0.5rem;
+    right: 0.5rem;
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(1rem);
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.15rem;
+}

@@ -1,5 +1,7 @@
 from datetime import datetime
 
+LAST_UPDATED = datetime.now().strftime('%b %d, %Y')
+
 JINJA_FILTERS = {
     'strptime': datetime.strptime,
 }
