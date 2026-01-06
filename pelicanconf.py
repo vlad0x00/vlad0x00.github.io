@@ -7,7 +7,7 @@ JINJA_FILTERS = {
 }
 
 AUTHOR = 'Vladimir Nikolic'
-SITENAME = 'Vladimir Nikolic'
+SITENAME = 'Vlad N.'
 SITEURL = ''
 
 PATH = 'content'
