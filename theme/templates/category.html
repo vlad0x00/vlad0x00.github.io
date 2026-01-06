@@ -27,10 +27,6 @@
                 <!-- Only print summary if category is in CATEGORIES_WITH_SUMMARY set -->
                 {% if category in CATEGORIES_WITH_SUMMARY %}
                 <div class="{{ category }}-category-article-summary">
-                {% if category in CATEGORIES_WITH_PUB_DATE and article.date %}
-                    Posted on {{ article.date|strftime(DEFAULT_DATE_FORMAT) }}
-                {% endif %}
-                <br/>
                 {% if article.synopsis %}
                     {{ article.synopsis }}
                     <br/>
@@ -38,6 +34,10 @@
                 {% for tag in article.tags %}
                     #{{ tag.name }}
                 {% endfor %}
+                <br/>
+                {% if category in CATEGORIES_WITH_PUB_DATE and article.date %}
+                    Posted on {{ article.date|strftime(DEFAULT_DATE_FORMAT) }}
+                {% endif %}
                 </div>
                 {% endif %}
             </a>

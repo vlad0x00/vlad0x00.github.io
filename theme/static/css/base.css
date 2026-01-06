@@ -183,3 +183,23 @@ hr {
     margin: 0.5rem 0.5rem 0.5rem auto;
     width: fit-content;
 }
+
+.links-section {
+    display: table;
+    margin: auto;
+    position: relative;
+}
+
+.links-section-left {
+    display: table;
+    margin: auto;
+    position: relative;
+    text-align: right;
+}
+
+.links-section-right {
+    display: table;
+    margin: auto;
+    position: relative;
+    text-align: left;
+}

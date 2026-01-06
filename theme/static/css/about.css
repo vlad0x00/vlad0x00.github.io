@@ -10,26 +10,6 @@
     word-break: break-word;
 }
 
-.links-section {
-    display: table;
-    margin: auto;
-    position: relative;
-}
-
-.links-section-left {
-    display: table;
-    margin: auto;
-    position: relative;
-    text-align: right;
-}
-
-.links-section-right {
-    display: table;
-    margin: auto;
-    position: relative;
-    text-align: left;
-}
-
 /* Underline links in .about-body class */
 .about-body a:link, .about-body a:visited, .about-body a:active, .about-body a:focus, .about-body a:hover {
     text-decoration: underline;
