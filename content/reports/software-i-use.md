@@ -36,7 +36,7 @@ Tags: software, digital-privacy
 </div>
 <div class="row">
     <div class="col-4 links-section-left">
-        MobileOS:
+        Phone OS:
     </div>
     <div class="col-8 links-section-right">
         <a target="_blank" href="https://grapheneos.org/">GrapheneOS</a>
